@@ -23,9 +23,9 @@ components:
     layout_properties: {grid_position: 'JJMMBB,TXJQMK'}
     event_bindings: {click: link_1_click}
 - name: column_panel_1
-  properties: {col_widths: '{"XJQPAP":10,"NFQIDA":35,"CKUOKU":15,"OYFIZP":14,"RBFTQT":10,"GXXOOG":35,"PIRPFM":15,"DLMDAZ":10,"OLUYAB":10,"TPGRUK":35,"ZWDCOK":15,"ZYDBFG":10,"PEXUWW":35,"OXQFEB":15,"TUQUYP":10,"KPFLCP":10,"SNYZFA":35,"AKLMPL":15,"TJZXOS":12,"EMNGBX":10,"ASQNNS":10,"JGXJKI":35,"MRNHOE":15,"CRCJKJ":10,"UNBRWV":10,"TPYTDJ":35,"MNQJUW":15,"FOKZEC":10,"BQBXVK":10,"CIUJSO":35,"XPJCEB":15,"ECVLWK":10,"ZDVEAZ":37,"EVTQJC":10,"IMIAGK":15,"JYTEHE":5}'}
+  properties: {col_widths: '{"XJQPAP":10,"NFQIDA":35,"CKUOKU":15,"OYFIZP":14,"RBFTQT":10,"GXXOOG":35,"PIRPFM":15,"DLMDAZ":10,"OLUYAB":10,"TPGRUK":35,"ZWDCOK":15,"ZYDBFG":10,"PEXUWW":35,"OXQFEB":15,"TUQUYP":10,"KPFLCP":10,"SNYZFA":35,"AKLMPL":15,"TJZXOS":12,"EMNGBX":10,"ASQNNS":10,"JGXJKI":35,"MRNHOE":15,"CRCJKJ":10,"UNBRWV":10,"TPYTDJ":35,"MNQJUW":15,"FOKZEC":10,"BQBXVK":10,"CIUJSO":35,"XPJCEB":15,"ECVLWK":10,"ZDVEAZ":37,"EVTQJC":10,"IMIAGK":10,"JYTEHE":5,"NTPVZY":47,"CNOIUW":38}'}
   type: ColumnPanel
-  layout_properties: {grid_position: 'VQSNZF,TIDJZH'}
+  layout_properties: {grid_position: 'VQSNZF,KFBLVX'}
   components:
   - name: label_1
     properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
