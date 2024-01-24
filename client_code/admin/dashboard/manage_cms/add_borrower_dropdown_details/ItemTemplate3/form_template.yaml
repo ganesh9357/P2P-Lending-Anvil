@@ -1,32 +1,19 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"WMEBRS":45,"XLVSCC":15,"DIYHSP":45,"BQADRK":15}'}
+  properties: {col_widths: '{}'}
 components:
-- type: TextBox
+- type: Label
   properties: {}
-  name: text_box_1
-  layout_properties: {grid_position: 'VQQPZJ,WMEBRS UMLGZI,DIYHSP'}
+  name: label_1
+  layout_properties: {grid_position: 'LQIYIR,OPVCST'}
   data_bindings:
-  - {property: text, code: 'self.item[''borrower_gender'']', writeback: true}
-  event_bindings: {pressed_enter: text_box_1_pressed_enter}
-- name: gender_button
-  properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-    foreground: 'theme:Tertiary Container', visible: true, text: SAVE, font_size: null,
-    font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-    background: '#00008B', bold: true, underline: false, icon: ''}
-  type: Button
-  layout_properties:
-    col_widths: {}
-    grid_position: VQQPZJ,WMEBRS UMLGZI,BQADRK
-  event_bindings: {click: gender_button_click}
-- name: gender_button_copy
-  properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-    foreground: 'theme:Tertiary Container', visible: true, text: DELETE, font_size: null,
-    font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-    background: 'theme:Error', bold: true, underline: false, icon: ''}
-  type: Button
-  layout_properties:
-    col_widths: {}
-    grid_position: VQQPZJ,XLVSCC
-  event_bindings: {click: gender_button_copy_click}
+  - {property: text, code: 'self.item[''borrower_gender'']'}
+- type: Link
+  properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
+    visible: true, text: Edit details, font_size: null, wrap_on: mobile, font: '',
+    col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '', spacing_below: small,
+    italic: false, background: '', bold: false, underline: false, icon: ''}
+  name: link_1
+  layout_properties: {grid_position: 'LQIYIR,GKWTUQ'}
+  event_bindings: {click: link_1_click}
 is_package: true

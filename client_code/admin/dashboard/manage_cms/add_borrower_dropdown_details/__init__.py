@@ -21,8 +21,13 @@ class add_borrower_dropdown_details(add_borrower_dropdown_detailsTemplate):
     """This method is called when the button is clicked"""
     entered_data = self.text_box_1.text
     new_row = app_tables.fin_borrower_gender.add_row(borrower_gender=entered_data)
+    self.text_box_1.text = ' '
     self.refresh()
 
   def refresh(self):
         """Refresh repeating panels with the latest data"""
         self.repeating_panel_1.items = app_tables.fin_borrower_gender.search()
+
+  def link_1_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('admin.dashboard.manage_cms')

@@ -39,7 +39,7 @@ components:
     layout_properties: {grid_position: 'PUMNIW,XYKKGR'}
   - name: button_2
     properties: {role: outlined-button, align: full, tooltip: '', border: '', enabled: true,
-      foreground: 'theme:Tertiary Container', visible: true, text: '   BORROWER          ',
+      foreground: 'theme:Tertiary Container', visible: true, text: '   BORROWER  DROPDOWNS',
       font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
       italic: false, background: '#00008B', bold: true, underline: false, icon: 'fa:cube'}
     type: Button
@@ -47,7 +47,7 @@ components:
     event_bindings: {click: button_2_click}
   - name: button_2_copy
     properties: {role: outlined-button, align: full, tooltip: '', border: '', enabled: true,
-      foreground: 'theme:Tertiary Container', visible: true, text: ' LENDOR            ',
+      foreground: 'theme:Tertiary Container', visible: true, text: ' LENDOR  DROPDOWNS',
       font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
       italic: false, background: '#00008B', bold: true, underline: false, icon: 'fa:cube'}
     type: Button
