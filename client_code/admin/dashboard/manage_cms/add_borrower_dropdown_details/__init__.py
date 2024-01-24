@@ -26,3 +26,10 @@ class add_borrower_dropdown_details(add_borrower_dropdown_detailsTemplate):
   def refresh(self):
         """Refresh repeating panels with the latest data"""
         self.repeating_panel_1.items = app_tables.fin_borrower_gender.search()
+        self.repeating_panel_2.items = app_tables.fin_borrower_marrital_status.search()
+
+  def marital_button_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    entered_data = self.text_box_2.text
+    new_row = app_tables.fin_borrower_marrital_status.add_row(borrower_marrital_status=entered_data)
+    self.refresh()

@@ -1,11 +1,18 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{}'}
+  properties: {col_widths: '{"LEUPUW":30,"XZXFIU":15,"OJMMZG":15}'}
 components:
 - type: TextBox
   properties: {}
   name: text_box_1
   layout_properties: {grid_position: 'UFJHYQ,LEUPUW'}
+- name: gender_button
+  properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+    foreground: 'theme:Tertiary Container', visible: true, text: SAVE, font_size: null,
+    font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+    background: '#00008B', bold: true, underline: false, icon: ''}
+  type: Button
+  layout_properties: {grid_position: 'UFJHYQ,XZXFIU'}
 - name: gender_button_copy
   properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
     foreground: 'theme:Tertiary Container', visible: true, text: DELETE, font_size: null,
@@ -15,4 +22,5 @@ components:
   layout_properties:
     col_widths: {}
     grid_position: UFJHYQ,OJMMZG
+  event_bindings: {click: gender_button_copy_click}
 is_package: true

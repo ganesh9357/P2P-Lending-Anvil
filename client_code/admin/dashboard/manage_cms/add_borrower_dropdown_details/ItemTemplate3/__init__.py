@@ -30,4 +30,9 @@ class ItemTemplate3(ItemTemplate3Template):
 
   def gender_button_copy_click(self, **event_args):
     """This method is called when the button is clicked"""
-    
+    if self.data_row:
+            # Delete the data row from the database
+            self.data_row.delete()
+            self.data_row = None  # Clear the data_row after deleting
+            self.edit_mode = False
+            Notification("Data deleted successfully")
