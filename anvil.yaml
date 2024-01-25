@@ -14,7 +14,7 @@ services:
 - source: /runtime/services/anvil/email.yml
   client_config: {}
   server_config: {}
-startup: {type: form, module: admin.dashboard.manage_cms}
+startup: {type: form, module: bank_users.main_form}
 package_name: bank_client
 allow_embedding: false
 name: P2P Lending App
@@ -23,6 +23,22 @@ runtime_options: {version: 2, client_version: '3', server_version: python3-sandb
 metadata: {title: 'P2P Bank ', description: this app provide services to person who are ready to invest and ready to give loan}
 startup_form: null
 db_schema:
+  fin_lendor_business_type:
+    title: fin_lendor_business_type
+    client: full
+    server: full
+    columns:
+    - name: lendor_business_type
+      admin_ui: {width: 200}
+      type: string
+  fin_lendor_salary_type:
+    title: fin_lendor_salary_type
+    client: full
+    server: full
+    columns:
+    - name: lendor_salary_type
+      admin_ui: {width: 200}
+      type: string
   fin_product_categories:
     title: fin_product_categories
     client: full
@@ -32,6 +48,14 @@ db_schema:
       admin_ui: {width: 200}
       type: string
     - name: name_group
+      admin_ui: {width: 200}
+      type: string
+  fin_lendor_no_of_employees:
+    title: fin_lendor_no_of_employees
+    client: full
+    server: full
+    columns:
+    - name: lendor_no_of_employees
       admin_ui: {width: 200}
       type: string
   fin_borrower_manage_dropdown:
@@ -130,6 +154,14 @@ db_schema:
       admin_ui: {width: 200, order: 9}
       type: string
     title: fin_lendor_manage_dropdown
+  fin_lendor_lending_type:
+    title: fin_lendor_lending_type
+    client: full
+    server: full
+    columns:
+    - name: lendor_lending_type
+      admin_ui: {width: 200}
+      type: string
   fin_product_details:
     client: full
     server: full
@@ -207,6 +239,22 @@ db_schema:
       admin_ui: {width: 200, order: 23}
       type: number
     title: fin_product_details
+  fin_lendor_gender:
+    title: fin_lendor_gender
+    client: full
+    server: full
+    columns:
+    - name: lendor_gender
+      admin_ui: {width: 200}
+      type: string
+  fin_borrower_organization_type:
+    title: fin_borrower_organization_type
+    client: full
+    server: full
+    columns:
+    - name: borrower_organization_type
+      admin_ui: {width: 200}
+      type: string
   fin_beseem_score:
     client: full
     server: full
@@ -242,6 +290,14 @@ db_schema:
       admin_ui: {width: 200, order: 9}
       type: number
     title: fin_beseem_score
+  fin_borrower_account_type:
+    title: fin_borrower_account_type
+    client: full
+    server: full
+    columns:
+    - name: borrower_account_type
+      admin_ui: {width: 200}
+      type: string
   fin_foreclosure:
     title: fin_foreclosure
     client: full
@@ -289,6 +345,14 @@ db_schema:
     - name: status
       admin_ui: {width: 200}
       type: string
+  fin_borrower_employee_type:
+    title: fin_borrower_employee_type
+    client: full
+    server: full
+    columns:
+    - name: borrower_employee_type
+      admin_ui: {width: 200}
+      type: string
   users:
     client: full
     server: full
@@ -318,6 +382,22 @@ db_schema:
       admin_ui: {order: 1.5, width: 200}
       type: string
     title: Users
+  fin_lendor_employee_type:
+    title: fin_lendor_employee_type
+    client: full
+    server: full
+    columns:
+    - name: lendor_employee_type
+      admin_ui: {width: 200}
+      type: string
+  fin_lendor_organization_type:
+    title: fin_lendor_organization_type
+    client: full
+    server: full
+    columns:
+    - name: lendor_organization_type
+      admin_ui: {width: 200}
+      type: string
   fin_borrower:
     title: fin_borrower
     client: full
@@ -358,6 +438,22 @@ db_schema:
       type: number
     - name: wallet_id
       admin_ui: {width: 200, order: 11}
+      type: string
+  fin_borrower_salary_type:
+    title: fin_borrower_salary_type
+    client: full
+    server: full
+    columns:
+    - name: borrower_salary_type
+      admin_ui: {width: 200}
+      type: string
+  fin_borrower_profession:
+    title: fin_borrower_profession
+    client: full
+    server: full
+    columns:
+    - name: borrower_profession
+      admin_ui: {width: 200}
       type: string
   fin_users_device:
     client: full
@@ -729,6 +825,14 @@ db_schema:
     - name: emi_status
       admin_ui: {width: 200, order: 9}
       type: bool
+  fin_borrower_business_type:
+    title: fin_borrower_business_type
+    client: full
+    server: full
+    columns:
+    - name: borrower_business_type
+      admin_ui: {width: 200}
+      type: string
   fin_extends_loan:
     client: full
     server: full
@@ -767,6 +871,14 @@ db_schema:
       admin_ui: {width: 200}
       type: date
     title: fin_extends_loan
+  fin_borrower_marrital_status:
+    title: fin_borrower_marrital_status
+    client: full
+    server: full
+    columns:
+    - name: borrower_marrital_status
+      admin_ui: {width: 200}
+      type: string
   fin_lender:
     title: fin_lender
     client: full
@@ -940,6 +1052,38 @@ db_schema:
       type: string
     - name: customer_id
       admin_ui: {order: 5, width: 200}
+      type: string
+  fin_borrower_gender:
+    title: fin_borrower_gender
+    client: full
+    server: full
+    columns:
+    - name: borrower_gender
+      admin_ui: {width: 200}
+      type: string
+  fin_lendor_qualification:
+    title: fin_lendor_qualification
+    client: full
+    server: full
+    columns:
+    - name: lendor_qualification
+      admin_ui: {width: 200}
+      type: string
+  fin_lendor_lending_period:
+    title: fin_lendor_lending_period
+    client: full
+    server: full
+    columns:
+    - name: lendor_lending_period
+      admin_ui: {width: 200}
+      type: string
+  fin_lendor_account_type:
+    title: fin_lendor_account_type
+    client: full
+    server: full
+    columns:
+    - name: lendor_account_type
+      admin_ui: {width: 200}
       type: string
 uplink_visible: true
 renamed: true

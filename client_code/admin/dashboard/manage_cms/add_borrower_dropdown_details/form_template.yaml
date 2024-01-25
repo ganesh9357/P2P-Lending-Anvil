@@ -1,9 +1,13 @@
-container: {type: ColumnPanel}
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{"IYNTNQ":57}'}
 components:
 - name: content_panel_copy
   properties: {col_widths: '{}'}
   type: ColumnPanel
-  layout_properties: {grid_position: 'ZVKBGE,SOGXFN'}
+  layout_properties:
+    col_widths: {}
+    grid_position: GOWDBI,BNKIVV
   components:
   - name: image_1
     properties: {role: null, vertical_align: center, height: 32, tooltip: '', border: '',
@@ -20,12 +24,12 @@ components:
       spacing_above: small, icon_align: left, col_widths: '', spacing_below: small,
       italic: false, background: '', bold: true, underline: false, icon: 'fa:backward'}
     type: Link
-    layout_properties: {grid_position: 'JJMMBB,TXJQMK'}
+    layout_properties: {grid_position: 'JJMMBB,QSMVZU'}
     event_bindings: {click: link_1_click}
 - name: column_panel_1
   properties: {col_widths: '{"XJQPAP":10,"NFQIDA":35,"CKUOKU":15,"OYFIZP":14,"RBFTQT":10,"GXXOOG":35,"PIRPFM":15,"DLMDAZ":10,"OLUYAB":10,"TPGRUK":35,"ZWDCOK":15,"ZYDBFG":10,"PEXUWW":35,"OXQFEB":15,"TUQUYP":10,"KPFLCP":10,"SNYZFA":35,"AKLMPL":15,"TJZXOS":10,"EMNGBX":10,"ASQNNS":10,"JGXJKI":35,"MRNHOE":15,"CRCJKJ":10,"UNBRWV":10,"TPYTDJ":35,"MNQJUW":15,"FOKZEC":10,"BQBXVK":10,"CIUJSO":35,"XPJCEB":15,"ECVLWK":10,"ZDVEAZ":37,"EVTQJC":10,"IMIAGK":10,"JYTEHE":5,"NTPVZY":49,"CNOIUW":42,"OXQUKB":38,"DJODIF":34,"YMEBCB":34,"DFKHRZ":32,"ZNOUXG":32}'}
   type: ColumnPanel
-  layout_properties: {grid_position: 'VQSNZF,KFBLVX'}
+  layout_properties: {grid_position: 'HCUPQX,IYNTNQ'}
   components:
   - name: label_1
     properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
@@ -43,6 +47,7 @@ components:
       background: '', bold: false, underline: false}
     type: TextBox
     layout_properties: {grid_position: 'DZGFNP,NFQIDA'}
+    event_bindings: {pressed_enter: text_box_1_pressed_enter}
   - name: gender_button
     properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
       foreground: 'theme:Tertiary Container', visible: true, text: ADD, font_size: null,
@@ -77,7 +82,7 @@ components:
       background: '', bold: false, underline: false}
     type: TextBox
     layout_properties: {grid_position: 'OLKTXM,ZDVEAZ'}
-    event_bindings: {pressed_enter: text_box_2_pressed_enter}
+    event_bindings: {}
   - name: marital_button
     properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
       foreground: 'theme:Tertiary Container', visible: true, text: ADD, font_size: null,
