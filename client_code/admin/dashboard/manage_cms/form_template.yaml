@@ -34,17 +34,22 @@ components:
       layout_properties: {grid_position: 'DNHCMV,PBHZJU'}
       event_bindings: {click: link_1_click}
   - name: spacer_1
-    properties: {height: 108.21429443359375}
+    properties: {height: 78.07144165039062}
     type: Spacer
     layout_properties: {grid_position: 'PUMNIW,XYKKGR'}
-  - name: button_2
-    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: 'theme:Tertiary Container', visible: true, text: '   MANAGE DROPDOWNS',
-      font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-      italic: false, background: '#00008B', bold: true, underline: false, icon: 'fa:cube'}
-    type: Button
-    layout_properties: {grid_position: 'EJHNGX,MOJCMF'}
-    event_bindings: {click: button_2_click}
+  - name: xy_panel_1
+    properties: {height: 100}
+    type: XYPanel
+    layout_properties: {grid_position: 'SWGGAQ,WVPGMJ'}
+    components:
+    - name: button_2
+      properties: {role: outlined-button, align: full, tooltip: '', border: '', enabled: true,
+        foreground: 'theme:Tertiary Container', visible: true, text: '   MANAGE DROPDOWNS',
+        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+        italic: false, background: '#00008B', bold: true, underline: false, icon: 'fa:cube'}
+      type: Button
+      layout_properties: {x: 198.0401785671711, y: 33.56248691678047, width: 590.6919555664062}
+      event_bindings: {click: button_2_click}
 - type: FlowPanel
   properties: {}
   name: navbar_links
