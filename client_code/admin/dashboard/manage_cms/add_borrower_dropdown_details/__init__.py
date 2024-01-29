@@ -29,7 +29,7 @@ class add_borrower_dropdown_details(add_borrower_dropdown_detailsTemplate):
   
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.dashboard.manage_cms')
+    open_form('admin.dashboard.manage_cms.manage_dropdowns')
 
 
   def gender_click(self, **event_args):
