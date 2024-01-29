@@ -899,6 +899,18 @@ db_schema:
     - name: borrower_full_name
       admin_ui: {width: 200}
       type: string
+    - name: borrower_email_id
+      admin_ui: {width: 200}
+      type: string
+    - name: description
+      admin_ui: {width: 200}
+      type: string
+    - name: final_emi
+      admin_ui: {width: 200}
+      type: number
+    - name: lender_email_id
+      admin_ui: {width: 200}
+      type: string
     title: fin_extends_loan
   fin_borrower_marrital_status:
     client: full
