@@ -20,8 +20,8 @@ class star_1_borrower_registration_form_begin_8(star_1_borrower_registration_for
       self.text_box_4.text=user_data['branch_name']
       user_data.update()
       
-    options = app_tables.fin_borrower_manage_dropdown.search()
-    options_string = [str(option['account_type']) for option in options]
+    options = app_tables.fin_borrower_account_type.search()
+    options_string = [str(option['borrower_account_type']) for option in options]
     self.drop_down_1.items = options_string
     # Set Form properties and Data Bindings.
     self.init_components(**properties)

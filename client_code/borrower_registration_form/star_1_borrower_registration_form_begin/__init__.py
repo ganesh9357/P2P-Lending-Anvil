@@ -17,13 +17,13 @@ class star_1_borrower_registration_form_begin(star_1_borrower_registration_form_
           self.borrower_full_name_test.text=user_data['full_name']
           self.borrower_date_of_birth_date_picker.date=user_data['date_of_birth']
           user_data.update()
-          options = app_tables.fin_borrower_manage_dropdown.search()
-          option_strings = [str(option['gender']) for option in options]
+          options = app_tables.fin_borrower_gender.search()
+          option_strings = [str(option['borrower_gender']) for option in options]
           self.gender_dd.items = option_strings
 
         # Set the selected value in the dropdown if it matches the user's gender
-          if user_data and str(user_data['gender']) in option_strings:
-            self.gender_dd.selected_value = str(user_data['gender'])
+          # if user_data and str(user_data['gender']) in option_strings:
+          #   self.gender_dd.selected_value = str(user_data['gender'])
         self.init_components(**properties)
         
         

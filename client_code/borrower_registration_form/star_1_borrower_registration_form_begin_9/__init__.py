@@ -21,8 +21,8 @@ class star_1_borrower_registration_form_begin_9(star_1_borrower_registration_for
       self.accepted_terms = False
       self.button_2.enabled = False
 
-      options = app_tables.fin_borrower_manage_dropdown.search()
-      options_string = [str(option['salary_type']) for option in options]
+      options = app_tables.fin_borrower_salary_type.search()
+      options_string = [str(option['borrower_salary_type']) for option in options]
       self.drop_down_1.items = options_string
     # Any code you write here will run before the form opens.
 

@@ -18,13 +18,13 @@ class star_1_borrower_registration_form_begin_3d(star_1_borrower_registration_fo
       self.drop_down_2.selected_value=user_data['organization_type']
       user_data.update()
 
-    options_1 = app_tables.fin_borrower_manage_dropdown.search()
-    option_strings_1 = [str(option['employee_type']) for option in options_1]
+    options_1 = app_tables.fin_borrower_employee_type.search()
+    option_strings_1 = [str(option['borrower_employee_type']) for option in options_1]
     self.drop_down_1.items = option_strings_1
 
         # Populate drop_down_2 with data from 'organization_type' column
-    options_2 = app_tables.fin_borrower_manage_dropdown.search()
-    option_strings_2 = [str(option['organization_type']) for option in options_2]
+    options_2 = app_tables.fin_borrower_organization_type.search()
+    option_strings_2 = [str(option['borrower_organization_type']) for option in options_2]
     self.drop_down_2.items = option_strings_2
     # Set Form properties and Data Bindings.
     self.init_components(**properties)

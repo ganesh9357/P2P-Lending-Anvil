@@ -15,16 +15,16 @@ class star_1_borrower_registration_form_begin_3b_business_2(star_1_borrower_regi
     if user_data:
       self.text_box_1.text=user_data['nearest_location']
       self.drop_down_1.selected_value=user_data['business_type']
-      options_2 = app_tables.fin_borrower_manage_dropdown.search()
-      option_strings_2 = [str(option['no_of_employees']) for option in options_2]
+      options_2 = app_tables.fin_borrower_no_of_employees.search()
+      option_strings_2 = [str(option['borrower_no_of_employees']) for option in options_2]
       self.drop_down_2.items = option_strings_2
       self.drop_down_2.selected_value = user_data['employees_working']
 
       user_data.update()
 
         # Populate drop_down_1 with data from 'business_type' column
-    options_1 = app_tables.fin_borrower_manage_dropdown.search()
-    option_strings_1 = [str(option['business_type']) for option in options_1]
+    options_1 = app_tables.fin_borrower_business_type.search()
+    option_strings_1 = [str(option['borrower_business_type']) for option in options_1]
     self.drop_down_1.items = option_strings_1
     # Set Form properties and Data Bindings.
     self.init_components(**properties)

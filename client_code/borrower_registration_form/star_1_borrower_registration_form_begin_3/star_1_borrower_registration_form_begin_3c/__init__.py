@@ -17,8 +17,8 @@ class star_1_borrower_registration_form_begin_3c(star_1_borrower_registration_fo
      self.Profesion_borrower_registration_form_drop_down.selected_value=user_data['profficen']
      user_data.update()
 
-    options = app_tables.fin_borrower_manage_dropdown.search()
-    option_strings = [str(option['profession']) for option in options]
+    options = app_tables.fin_borrower_profession.search()
+    option_strings = [str(option['borrower_profession']) for option in options]
     self.Profesion_borrower_registration_form_drop_down.items = option_strings
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
