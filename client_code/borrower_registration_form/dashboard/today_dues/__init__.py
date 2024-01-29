@@ -17,7 +17,7 @@ class today_dues(today_duesTemplate):
         self.init_components(**properties)
         
         # Fetch all loan details
-        all_loans = app_tables.finloan_details.search(
+        all_loans = app_tables.fin_loan_details.search(
             loan_updated_status=q.like('%accept%')
         )
         
