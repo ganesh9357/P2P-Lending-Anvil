@@ -149,7 +149,7 @@ class add_lender_dropdown_details(add_lender_dropdown_detailsTemplate):
     # Check if the entered status is valid
     valid_statuses = ['10th class', 'Intermediate / PUC', 'Btech / B.E','Mtech','Phd']
     if entered_data not in valid_statuses:
-        alert("Please enter a valid marital status: '10th class', 'Intermediate / PUC', 'Btech / B.E','Mtech','Phd'.")
+        alert("Please enter a valid qualificarion : '10th class', 'Intermediate / PUC', 'Btech / B.E','Mtech','Phd'.")
         return
     new_row = app_tables.fin_lendor_qualification.add_row(lendor_qualification=entered_data)
     self.text_box_2.text = ' '
@@ -181,7 +181,7 @@ class add_lender_dropdown_details(add_lender_dropdown_detailsTemplate):
     entered_data = self.text_box_5.text
     valid_statuses = ['Individual', 'Institutional']
     if entered_data not in valid_statuses:
-        alert("Please enter a valid marital status: 'Individual', 'Institutional'.")
+        alert("Please enter a valid lending type : 'Individual', 'Institutional'.")
         return
     new_row = app_tables.fin_lendor_lending_type.add_row(lendor_lending_type=entered_data)
     self.text_box_5.text = ' '
