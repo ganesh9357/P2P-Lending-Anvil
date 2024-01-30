@@ -186,7 +186,7 @@ def add_loan_details(loan_amount, tenure,user_id,interest_rate, total_repayment_
           loan_updated_status = "under process",
           borrower_loan_created_timestamp=loan_created_timestamp,
           product_id = product_id,
-          beseem_score=bessem.fetch_bessem(borrower_email_id)
+          # beseem_score=bessem.fetch_bessem(borrower_email_id)
           
           # borrower_loan_created_timestamp = datetime.now()
          )
