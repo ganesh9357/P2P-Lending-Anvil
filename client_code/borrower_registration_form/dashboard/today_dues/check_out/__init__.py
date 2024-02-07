@@ -105,48 +105,58 @@ class check_out(check_outTemplate):
 
               prev_scheduled_payment = self.selected_row['scheduled_payment']
               prev_next_payment = self.selected_row['next_payment']
-              
-              if emi_payment_type == 'One Time':
-                  next_scheduled_payment = prev_scheduled_payment + timedelta(days=365)
-                  next_next_payment = self.selected_row['next_payment'] + timedelta(days=365)
-              else:
-                  if emi_payment_type == 'Monthly':
-                      next_scheduled_payment = prev_scheduled_payment + timedelta(days=30)
-                      next_next_payment = prev_next_payment + timedelta(days=30)
-                  elif emi_payment_type == 'Three Month':
-                      next_scheduled_payment = prev_scheduled_payment + timedelta(days=90)
-                      next_next_payment = prev_next_payment + timedelta(days=90)
-                  elif emi_payment_type == 'Six Month':
-                      next_scheduled_payment = prev_scheduled_payment + timedelta(days=180)
-                      next_next_payment = prev_next_payment + timedelta(days=180)
-                  else:
-                      # Default to monthly calculation
-                      next_scheduled_payment = prev_scheduled_payment + timedelta(days=30)
-                      next_next_payment = prev_next_payment + timedelta(days=30)
-  
-              # Add a new row to fin_emi_table
-              new_emi_row = app_tables.fin_emi_table.add_row(
-                  loan_id=loan_id,
-                  emi_number=current_emi_number + 1,
-                  account_number=account_number,
-                  scheduled_payment_made=datetime.now(),
-                  scheduled_payment=next_scheduled_payment,
-                  next_payment=next_next_payment            
-              )
-              
-              # Update the emi_number, scheduled_payment, and next_payment in the selected_row
-              self.selected_row['emi_number'] = current_emi_number + 1
-              self.selected_row['scheduled_payment'] = next_scheduled_payment
-              self.selected_row['next_payment'] = next_next_payment
-              self.selected_row.update()
-              
-              self.status_label.text = "Payment successfully done..."
+
+               # Determine lender's customer ID
+              lender_customer_id = self.selected_row['lender_customer_id']
+              lender_wallet = app_tables.fin_wallet.get(customer_id=lender_customer_id)
+              if lender_wallet is not None:
+                # Add payment to lender's wallet
+                lender_balance = lender_wallet['wallet_amount'] if 'wallet_amount' in lender_wallet else 0
+                lender_balance += total_emi_amount
+                lender_wallet['wallet_amount'] = lender_balance
+                lender_wallet.update()
+                
+                if emi_payment_type == 'One Time':
+                    next_scheduled_payment = prev_scheduled_payment + timedelta(days=365)
+                    next_next_payment = self.selected_row['next_payment'] + timedelta(days=365)
+                else:
+                    if emi_payment_type == 'Monthly':
+                        next_scheduled_payment = prev_scheduled_payment + timedelta(days=30)
+                        next_next_payment = prev_next_payment + timedelta(days=30)
+                    elif emi_payment_type == 'Three Month':
+                        next_scheduled_payment = prev_scheduled_payment + timedelta(days=90)
+                        next_next_payment = prev_next_payment + timedelta(days=90)
+                    elif emi_payment_type == 'Six Month':
+                        next_scheduled_payment = prev_scheduled_payment + timedelta(days=180)
+                        next_next_payment = prev_next_payment + timedelta(days=180)
+                    else:
+                        # Default to monthly calculation
+                        next_scheduled_payment = prev_scheduled_payment + timedelta(days=30)
+                        next_next_payment = prev_next_payment + timedelta(days=30)
+    
+                # Add a new row to fin_emi_table
+                new_emi_row = app_tables.fin_emi_table.add_row(
+                    loan_id=loan_id,
+                    emi_number=current_emi_number + 1,
+                    account_number=account_number,
+                    scheduled_payment_made=datetime.now(),
+                    scheduled_payment=next_scheduled_payment,
+                    next_payment=next_next_payment            
+                )
+                
+                # Update the emi_number, scheduled_payment, and next_payment in the selected_row
+                self.selected_row['emi_number'] = current_emi_number + 1
+                self.selected_row['scheduled_payment'] = next_scheduled_payment
+                self.selected_row['next_payment'] = next_next_payment
+                self.selected_row.update()
+                
+                self.status_label.text = "Payment successfully done..."
           else:
-              alert("Insufficient funds in wallet. Please deposit more funds to continue.")
-              open_form('wallet.wallet')
+                alert("Insufficient funds in wallet. Please deposit more funds to continue.")
+                open_form('wallet.wallet')
       else:
-          self.status_label.text = "Wallet record not found."
-  
+            self.status_label.text = "Wallet record not found."
+    
     def button_1_copy_2_click(self, **event_args):
         """This method is called when the button is clicked"""
         open_form('borrower_registration_form.dashboard.today_dues')
