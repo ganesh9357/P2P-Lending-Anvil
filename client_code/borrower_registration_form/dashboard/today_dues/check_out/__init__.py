@@ -136,9 +136,11 @@ class check_out(check_outTemplate):
                         if emi_payment_type == 'One Time':
                             next_scheduled_payment = prev_scheduled_payment + timedelta(days=365)
                             next_next_payment = self.selected_row['next_payment'] + timedelta(days=365)
+                            next_scheduled_payment -= timedelta(days=365)
                         elif emi_payment_type == 'Monthly':
                             next_scheduled_payment = prev_scheduled_payment + timedelta(days=30)
                             next_next_payment = prev_next_payment + timedelta(days=30)
+                            next_scheduled_payment -= timedelta(days=30)
                         elif emi_payment_type == 'Three Month':
                             next_scheduled_payment = prev_scheduled_payment + timedelta(days=90)
                             next_next_payment = prev_next_payment + timedelta(days=90)
@@ -147,7 +149,8 @@ class check_out(check_outTemplate):
                         elif emi_payment_type == 'Six Month':
                             next_scheduled_payment = prev_scheduled_payment + timedelta(days=180)
                             next_next_payment = prev_next_payment + timedelta(days=180)
-                            
+                            # Reduce the scheduled payment by 6 months
+                            next_scheduled_payment -= timedelta(days=180)
                     
                         # Update scheduled payment only if it's the same as the first payment due date
                         if is_first_payment_due_date:
