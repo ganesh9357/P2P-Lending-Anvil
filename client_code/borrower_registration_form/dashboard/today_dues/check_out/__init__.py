@@ -174,6 +174,7 @@ class check_out(check_outTemplate):
                     self.selected_row.update()
 
                     self.status_label.text = "Payment successfully done..."
+                    self.button_1_copy_3.visible = False
                 else:
                     self.status_label.text = "Lender's wallet not found."
             else:
