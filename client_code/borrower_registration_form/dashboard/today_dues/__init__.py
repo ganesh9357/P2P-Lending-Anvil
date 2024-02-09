@@ -125,7 +125,7 @@ class today_dues(today_duesTemplate):
         self.repeating_panel_1.items = loan_details
         for loan_detail in loan_details:
             print("Processing loan:", loan_detail)
-            if loan_detail['days_left'] >= 2 and loan_detail['days_left'] < 8:
+            if loan_detail['days_left'] >= 6 and loan_detail['days_left'] < 8:
                 print("Updating status to 'lapsed loan'")
                 loan_detail['loan_updated_status'] = 'lapsed loan'
                 loan_row = app_tables.fin_loan_details.get(loan_id=loan_detail['loan_id'])

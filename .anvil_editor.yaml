@@ -168,8 +168,10 @@ unique_ids:
     borrower_registration_form.dashboard.extension_loan_request.RowTemplate37: '170601217102983585834172.90788'
     lendor_registration_form.navigation_bar_main_lender: '1706506456664861750124925.942'
     borrower_registration_form.star_1_borrower_registration_form_2_employment: '1699373440164759513719499.4375'
+    admin.dashboard.loan_management.one_time_settlement.view_profile_10: '1707378302412638824272843.9039'
     admin.dashboard.manage_products.manage_producs1: '1700713086879771707093045.5188'
     lendor_registration_form.dashboard.view_or_download_portfolio: '1699963103625209878486803.42514'
+    admin.dashboard.loan_management.one_time_settlement.ItemTemplate26: '1707378700314733202643604.2423'
     admin.dashboard.manage_cms: '1699528617179453409715572.5991'
     lendor_registration_form.dashboard.view_loan_foreclosure_Requests.foreclose_details: '1700454637827919052628054.0963'
     ? borrower_registration_form.star_1_borrower_registration_form_2_employment.star_1_borrower_registration_form_2_employment_business_1
@@ -250,6 +252,7 @@ unique_ids:
     admin.dashboard.loan_management.lapsed_loans.ItemTemplate23: '170712932240636529702505.68765'
     admin.dashboard.manage_cms.add_lender_dropdown_details.lending_type: '1706532092749385411492768.6154'
     admin.dashboard.home_button_admin: '1706595991042717143199814.3754'
+    admin.dashboard.loan_management.one_time_settlement: '1707378247720454790240248.4296'
     lendor_registration_form.lender_registration_form_4_bank_form_1: '1699429435323170866799491.21808'
     wallet.wallet.all_transaction: '1704884604578852863514289.3086'
     borrower_registration_form.dashboard.view_loans.payment_details_b.RowTemplate36: '1705553457787678152376814.2659'

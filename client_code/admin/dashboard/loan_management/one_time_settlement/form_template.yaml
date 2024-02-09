@@ -1,18 +1,13 @@
-is_package: true
 container:
-  type: HtmlTemplate
-  properties: {html: '@theme:standard-page.html'}
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
 components:
-- type: FlowPanel
-  properties: {}
-  name: navbar_links
-  layout_properties: {slot: nav-right}
 - type: ColumnPanel
-  properties: {col_widths: '{"SIXGCT":20,"VXAFWJ":20,"JIRTYY":20,"VISKEZ":20,"UDGJOQ":40}'}
+  properties: {col_widths: '{}'}
   name: content_panel_copy
   layout_properties:
     col_widths: {}
-    grid_position: XPYIJE,DUMJYO
+    grid_position: HHXPKE,DASPNF
   components:
   - type: Image
     properties: {role: null, vertical_align: center, height: 32, tooltip: '', border: '',
@@ -22,99 +17,53 @@ components:
     name: image_1
     layout_properties:
       col_widths: {}
-      grid_position: CFSQGP,ZDQYFQ
+      grid_position: JJMMBB,QIWPVU
   - type: form:admin.dashboard.home_button_admin
     properties: {}
     name: home_button_admin_1
-    layout_properties: {grid_position: 'CFSQGP,NHUHBX'}
-  - type: Label
-    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-      visible: true, text: Loan Management, font_size: 15, font: '', spacing_above: small,
-      icon_align: left, spacing_below: large, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
-    name: label_1
-    layout_properties: {grid_position: 'GAWPTG,ETBNFC'}
-  - type: Button
-    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: 'theme:On Primary', visible: true, text: Approved Loans, font_size: null,
-      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '#00008B', bold: false, underline: false, icon: ''}
-    name: button_1
-    layout_properties: {grid_position: 'EAARXW,KHBAPA'}
-    event_bindings: {click: button_1_click}
-  - type: Button
-    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: 'theme:On Primary', visible: true, text: Rejected Loans, font_size: null,
-      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '#00008B', bold: false, underline: false, icon: ''}
-    name: button_2
-    layout_properties: {grid_position: 'EAARXW,FAABIH'}
-    event_bindings: {click: button_2_click}
-  - type: Button
-    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: 'theme:On Primary', visible: true, text: Under Process Loans, font_size: null,
-      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '#00008B', bold: false, underline: false, icon: ''}
-    name: button_3
-    layout_properties: {grid_position: 'EAARXW,LAARIF'}
-    event_bindings: {click: button_3_click}
-  - type: Button
-    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: 'theme:On Primary', visible: true, text: '   Open Loans     ', font_size: null,
-      font: '', spacing_above: medium, icon_align: left, spacing_below: small, italic: false,
-      background: '#00008B', bold: false, underline: false, icon: ''}
-    name: button_4
-    layout_properties: {grid_position: 'THEKGJ,FNZYWY'}
-    event_bindings: {click: button_4_click}
-  - type: Button
-    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: 'theme:On Primary', visible: true, text: 'Closed Loans     ', font_size: null,
-      font: '', spacing_above: medium, icon_align: left, spacing_below: small, italic: false,
-      background: '#00008B', bold: false, underline: false, icon: ''}
-    name: button_5
-    layout_properties: {grid_position: 'THEKGJ,YDIVPE'}
-    event_bindings: {click: button_5_click}
-  - type: Button
-    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: 'theme:On Primary', visible: true, text: 'Loan Disbursed              ',
-      font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-      italic: false, background: '#00008B', bold: false, underline: false, icon: ''}
-    name: button_6
-    layout_properties: {grid_position: 'THEKGJ,UBBBRD'}
-    event_bindings: {click: button_6_click}
-  - type: Button
-    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-      foreground: 'theme:On Primary', visible: true, text: 'Lapsed Loans       ',
-      font_size: null, font: '', spacing_above: medium, icon_align: left, spacing_below: small,
-      italic: false, background: '#00008B', bold: false, underline: false, icon: ''}
-    name: button_7
-    layout_properties: {grid_position: 'YSIPNY,SIXGCT'}
-    event_bindings: {click: button_7_click}
-  - type: Button
-    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: 'theme:On Primary', visible: true, text: 'Default Loans      ',
-      font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-      italic: false, background: '#00008B', bold: false, underline: false, icon: ''}
-    name: button_8
-    layout_properties: {grid_position: 'YSIPNY,VXAFWJ'}
-    event_bindings: {click: button_8_click}
-  - type: Button
-    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: 'theme:On Primary', visible: true, text: 'Not Payable Amount       ',
-      font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-      italic: false, background: '#00008B', bold: false, underline: false, icon: ''}
-    name: button_6_copy
-    layout_properties: {grid_position: 'YSIPNY,JIRTYY'}
-    event_bindings: {click: button_6_copy_click}
-  - type: Button
-    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: 'theme:On Primary', visible: true, text: One Time Settlement, font_size: null,
-      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '#00008B', bold: false, underline: false, icon: ''}
-    name: button_6_copy_2
-    layout_properties: {grid_position: 'CZYROF,VISKEZ'}
-    event_bindings: {click: button_6_copy_2_click}
-  - type: Spacer
-    properties: {height: 32}
-    name: spacer_1
-    layout_properties: {grid_position: 'CZYROF,UDGJOQ'}
+    layout_properties: {grid_position: 'JJMMBB,DYHNJX'}
+- type: DataGrid
+  properties:
+    role: null
+    columns:
+    - {id: EPCWQG, title: Loan ID, data_key: column_1, $$hashKey: 'object:53723',
+      width: '145', expand: false}
+    - {id: WMIWXU, title: Customer ID, data_key: column_2, $$hashKey: 'object:53724',
+      width: '175', expand: false}
+    - {id: PVBYZX, title: Full Name, data_key: column_3, $$hashKey: 'object:53725',
+      width: '170', expand: false}
+    - {id: HCAQYD, title: Loan Status, data_key: column_4, $$hashKey: 'object:53773',
+      width: 159, expand: false}
+    - {id: KQYBVK, title: '', data_key: view profile, $$hashKey: 'object:221467',
+      width: '110', expand: false}
+    auto_header: true
+    tooltip: ''
+    border: ''
+    foreground: ''
+    rows_per_page: 20
+    visible: true
+    wrap_on: never
+    show_page_controls: true
+    spacing_above: large
+    spacing_below: small
+    background: ''
+  name: data_grid_1
+  layout_properties:
+    col_widths: {}
+    grid_position: RIZAUN,TNDSRH
+  components:
+  - type: RepeatingPanel
+    properties: {item_template: admin.dashboard.loan_management.one_time_settlement.ItemTemplate26}
+    name: repeating_panel_1
+    layout_properties: {grid_position: 'VBBRLE,KWQDMN'}
+- type: Button
+  properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
+    foreground: white, visible: true, text: Back, font_size: null, font: '16', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '#0b2547',
+    bold: true, underline: false, icon: 'fa:backward'}
+  name: button_1_copy
+  layout_properties:
+    col_widths: {}
+    grid_position: PUAMEP,WSWHDE
+  event_bindings: {click: button_1_copy_click}
+is_package: true
