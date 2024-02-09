@@ -23,13 +23,8 @@ runtime_options: {version: 2, client_version: '3', server_version: python3-sandb
 metadata: {title: 'P2P Bank ', description: this app provide services to person who are ready to invest and ready to give loan}
 startup_form: null
 db_schema:
-  wallet_notification:
-    title: fin_wallet_notification
-    client: full
-    server: full
-    columns: []
   fin_lendor_business_type:
-    client: none
+    client: full
     server: full
     columns:
     - name: lendor_business_type
@@ -37,7 +32,7 @@ db_schema:
       type: string
     title: fin_lendor_business_type
   fin_lendor_salary_type:
-    client: none
+    client: full
     server: full
     columns:
     - name: lendor_salary_type
@@ -56,7 +51,7 @@ db_schema:
       admin_ui: {width: 200}
       type: string
   fin_lendor_no_of_employees:
-    client: none
+    client: full
     server: full
     columns:
     - name: lendor_no_of_employees
@@ -139,7 +134,7 @@ db_schema:
       admin_ui: {width: 200}
       type: string
   fin_lendor_lending_type:
-    client: none
+    client: full
     server: full
     columns:
     - name: lendor_lending_type
@@ -233,13 +228,13 @@ db_schema:
       type: number
     title: fin_product_details
   fin_lendor_gender:
-    title: fin_lendor_gender
     client: full
     server: full
     columns:
     - name: lendor_gender
-      admin_ui: {width: 200}
+      admin_ui: {width: 200, order: 0}
       type: string
+    title: fin_lendor_gender
   fin_borrower_organization_type:
     client: full
     server: full
@@ -379,7 +374,7 @@ db_schema:
       type: string
     title: Users
   fin_lendor_employee_type:
-    client: none
+    client: full
     server: full
     columns:
     - name: lendor_employee_type
@@ -865,14 +860,6 @@ db_schema:
       admin_ui: {width: 200}
       type: datetime
     title: fin_extends_loan
-  fin_lendor_gender_2:
-    title: fin_lendor_gender
-    client: none
-    server: full
-    columns:
-    - name: lendor_gender
-      admin_ui: {width: 200}
-      type: string
   fin_borrower_marrital_status:
     client: full
     server: full
@@ -923,7 +910,7 @@ db_schema:
       admin_ui: {order: 12, width: 200}
       type: string
   fin_wallet_bank_account_table:
-    client: none
+    client: full
     server: full
     columns:
     - name: account_id
@@ -1133,7 +1120,7 @@ db_schema:
       type: string
     title: fin_borrower_gender
   fin_lendor_qualification:
-    client: none
+    client: full
     server: full
     columns:
     - name: lendor_qualification
@@ -1141,7 +1128,7 @@ db_schema:
       type: string
     title: fin_lendor_qualification
   fin_lendor_lending_period:
-    client: none
+    client: full
     server: full
     columns:
     - name: lendor_lending_period
