@@ -207,7 +207,7 @@ def add_lendor_bank_details_form_1(account_name, account_type,account_number,ban
     row[0]['account_name'] = account_name
     row[0]['account_type'] = account_type
     row[0]['account_number'] = account_number
-    row[0]['select_bank'] = bank_name
+    row[0]['bank_name'] = bank_name
 
 
 @anvil.server.callable
