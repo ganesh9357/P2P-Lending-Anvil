@@ -124,13 +124,6 @@ components:
       background: 'theme:On Primary', bold: false, underline: false}
     type: TextBox
     layout_properties: {row: CEITXX, width_xs: 5, col_xs: 6}
-  - name: mbl_label_1
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: '', font_size: 12, font: '', spacing_above: none, icon_align: left,
-      spacing_below: small, italic: false, background: '', bold: false, underline: false,
-      icon: ''}
-    type: Label
-    layout_properties: {row: VXAUDA, width_xs: 3, col_xs: 6}
   - name: label_3_copy_1_copy_2
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: 'Father Address :', font_size: null, font: '', spacing_above: small,

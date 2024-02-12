@@ -210,6 +210,7 @@ def add_lendor_bank_details_form_1(account_name, account_type,account_number,ban
     row[0]['bank_name'] = bank_name
 
 
+
 @anvil.server.callable
 def add_lendor_bank_details_form_2(bank_id,branch_name, user_id):
   row = app_tables.fin_user_profile.search(customer_id = user_id)
