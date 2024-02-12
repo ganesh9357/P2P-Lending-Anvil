@@ -23,6 +23,19 @@ runtime_options: {version: 2, client_version: '3', server_version: python3-sandb
 metadata: {title: 'P2P Bank ', description: this app provide services to person who are ready to invest and ready to give loan}
 startup_form: null
 db_schema:
+  fin_gender:
+    client: full
+    server: full
+    columns:
+    - name: gender
+      admin_ui: {order: 0, width: 200}
+      type: string
+    title: fin_gender
+  wallet_notification:
+    title: fin_wallet_notification
+    client: full
+    server: full
+    columns: []
   fin_lendor_business_type:
     client: full
     server: full
@@ -31,14 +44,6 @@ db_schema:
       admin_ui: {width: 200, order: 0}
       type: string
     title: fin_lendor_business_type
-  fin_lendor_salary_type:
-    client: full
-    server: full
-    columns:
-    - name: lendor_salary_type
-      admin_ui: {width: 200, order: 0}
-      type: string
-    title: fin_lendor_salary_type
   fin_product_categories:
     title: fin_product_categories
     client: full
@@ -66,6 +71,14 @@ db_schema:
       admin_ui: {width: 200, order: 0}
       type: string
     title: fin_borrower_no_of_employees
+  fin_lendor_marrital_status:
+    title: fin_lendor_marrital_status
+    client: full
+    server: full
+    columns:
+    - name: lendor_marrital_status
+      admin_ui: {width: 200}
+      type: string
   fin_wallet:
     client: full
     server: full
@@ -98,41 +111,6 @@ db_schema:
       admin_ui: {width: 200, order: 8}
       type: string
     title: fin_wallet
-  fin_lendor_manage_dropdown:
-    title: fin_lendor_manage_dropdown
-    client: full
-    server: full
-    columns:
-    - name: gender
-      admin_ui: {width: 200}
-      type: string
-    - name: business_type
-      admin_ui: {width: 200}
-      type: string
-    - name: no_of_employees
-      admin_ui: {width: 200}
-      type: string
-    - name: organization_type
-      admin_ui: {order: 9, width: 234}
-      type: string
-    - name: employment_type
-      admin_ui: {width: 200}
-      type: string
-    - name: salary_type
-      admin_ui: {width: 200}
-      type: string
-    - name: account_type
-      admin_ui: {width: 200}
-      type: string
-    - name: qualification
-      admin_ui: {width: 200}
-      type: string
-    - name: lending_type
-      admin_ui: {width: 200}
-      type: string
-    - name: lending_period
-      admin_ui: {width: 200}
-      type: string
   fin_lendor_lending_type:
     client: full
     server: full
@@ -227,14 +205,6 @@ db_schema:
       admin_ui: {width: 200, order: 26}
       type: number
     title: fin_product_details
-  fin_lendor_gender:
-    client: full
-    server: full
-    columns:
-    - name: lendor_gender
-      admin_ui: {width: 200, order: 0}
-      type: string
-    title: fin_lendor_gender
   fin_borrower_organization_type:
     client: full
     server: full
@@ -289,6 +259,14 @@ db_schema:
       admin_ui: {width: 200, order: 0}
       type: string
     title: fin_borrower_account_type
+  fin_borrower_qualification:
+    title: fin_borrower_qualification
+    client: full
+    server: full
+    columns:
+    - name: borrower_qualification
+      admin_ui: {width: 200}
+      type: string
   fin_foreclosure:
     title: fin_foreclosure
     client: full
@@ -430,14 +408,6 @@ db_schema:
     - name: wallet_id
       admin_ui: {width: 200, order: 11}
       type: string
-  fin_borrower_salary_type:
-    client: full
-    server: full
-    columns:
-    - name: borrower_salary_type
-      admin_ui: {width: 200, order: 0}
-      type: string
-    title: fin_borrower_salary_type
   fin_borrower_profession:
     client: full
     server: full

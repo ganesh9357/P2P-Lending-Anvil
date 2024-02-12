@@ -19,8 +19,8 @@ class lender_registration_form_3_marital_details(lender_registration_form_3_mari
       self.marital_status_lender_registration_dropdown.selected_value=user_data['marital_status']
       user_data.update()
 
-    options = app_tables.fin_borrower_marrital_status.search()
-    options_string = [str(option['borrower_marrital_status']) for option in options]
+    options = app_tables.fin_lendor_marrital_status.search()
+    options_string = [str(option['lendor_marrital_status']) for option in options]
     self.marital_status_lender_registration_dropdown.items = options_string
     self.init_components(**properties)
 
