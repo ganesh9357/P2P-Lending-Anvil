@@ -37,7 +37,7 @@ class lender_registration_form_3_marital_details(lender_registration_form_3_mari
     else:
       anvil.server.call('add_lendor_marital',marital_status,user_id)
       if marital_status == 'Not Married':
-        open_form('lendor_registration_form.lender_registration_form_4_bank_form_1',user_id = user_id)
+        open_form('lendor_registration_form.lender_registration_form_3_marital_details.lender_registration_form_3_marital_married',user_id = user_id)
       elif marital_status == 'Married':
         open_form('lendor_registration_form.lender_registration_form_3_marital_details.lender_registration_form_3_marital_married',user_id = user_id)
       else:
