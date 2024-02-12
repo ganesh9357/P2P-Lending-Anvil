@@ -211,6 +211,11 @@ class add_lender_dropdown_details(add_lender_dropdown_detailsTemplate):
   def marital_button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
     entered_data = self.text_box_9.text
+    # Check if the entered status is valid
+    valid_statuses = ['Not Married', 'Married', 'Other']
+    if entered_data not in valid_statuses:
+        alert("Please enter a valid marital status: 'Not Married', 'Married', 'Other'.")
+        return
     new_row = app_tables.fin_lendor_marrital_status.add_row(lendor_marrital_status=entered_data)
     self.text_box_9.text = ' '
     self.refresh()
