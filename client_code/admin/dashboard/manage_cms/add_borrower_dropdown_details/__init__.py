@@ -18,7 +18,7 @@ class add_borrower_dropdown_details(add_borrower_dropdown_detailsTemplate):
 
   def refresh(self):
         """Refresh repeating panels with the latest data"""
-        # self.repeating_panel_1.items = app_tables.fin_borrower_gender.search()
+        self.repeating_panel_10.items = app_tables.fin_borrower_salary_type.search()
         self.repeating_panel_2.items = app_tables.fin_borrower_marrital_status.search()
         self.repeating_panel_3.items = app_tables.fin_borrower_business_type.search()
         self.repeating_panel_4.items = app_tables.fin_borrower_no_of_employees.search()
@@ -51,6 +51,7 @@ class add_borrower_dropdown_details(add_borrower_dropdown_detailsTemplate):
     self.column_panel_5.visible = False   
     self.column_panel_4.visible = False
     self.column_panel_3.visible = True
+    self.column_panel_10_copy.visible = False
     # self.column_panel_2.visible = False
 
   def business_click(self, **event_args):
@@ -63,6 +64,7 @@ class add_borrower_dropdown_details(add_borrower_dropdown_detailsTemplate):
     self.column_panel_5.visible = False   
     self.column_panel_4.visible = True
     self.column_panel_3.visible = False
+    self.column_panel_10_copy.visible = False
     # self.column_panel_2.visible = False
 
 
@@ -75,6 +77,7 @@ class add_borrower_dropdown_details(add_borrower_dropdown_detailsTemplate):
     self.column_panel_6.visible = True
     self.column_panel_5.visible = False   
     self.column_panel_4.visible = False
+    self.column_panel_10_copy.visible = False
     self.column_panel_3.visible = False
     # self.column_panel_2.visible = False   
 
@@ -87,6 +90,7 @@ class add_borrower_dropdown_details(add_borrower_dropdown_detailsTemplate):
     self.column_panel_6.visible = False
     self.column_panel_5.visible = True   
     self.column_panel_4.visible = False
+    self.column_panel_10_copy.visible = False
     self.column_panel_3.visible = False
     # self.column_panel_2.visible = False
 
@@ -101,6 +105,7 @@ class add_borrower_dropdown_details(add_borrower_dropdown_detailsTemplate):
     self.column_panel_4.visible = False
     self.column_panel_3.visible = False
     # self.column_panel_2.visible = False
+    self.column_panel_10_copy.visible = False
 
   def organization_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -113,6 +118,7 @@ class add_borrower_dropdown_details(add_borrower_dropdown_detailsTemplate):
     self.column_panel_4.visible = False
     self.column_panel_3.visible = False
     # self.column_panel_2.visible = False
+    self.column_panel_10_copy.visible = False
 
   def account_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -125,18 +131,20 @@ class add_borrower_dropdown_details(add_borrower_dropdown_detailsTemplate):
     self.column_panel_4.visible = False
     self.column_panel_3.visible = False
     # self.column_panel_2.visible = False
+    self.column_panel_10_copy.visible = False
 
   def salary_click(self, **event_args):
     """This method is called when the button is clicked"""
     self.column_panel_7.visible = False
     self.column_panel_8.visible = False
     self.column_panel_9.visible = False
-    self.column_panel_10.visible = True
+    self.column_panel_10.visible = False
     self.column_panel_6.visible = False
     self.column_panel_5.visible = False   
     self.column_panel_4.visible = False
     self.column_panel_3.visible = False
     # self.column_panel_2.visible = False
+    self.column_panel_10_copy.visible = True
 
   def marital_button_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -214,11 +222,18 @@ class add_borrower_dropdown_details(add_borrower_dropdown_detailsTemplate):
     new_row = app_tables.fin_borrower_qualification.add_row(borrower_qualification=entered_data)
     self.text_box_9.text = ' '
     self.refresh()
+    
   def button_1_copy_3_click(self, **event_args):
     """This method is called when the button is clicked"""
     open_form('admin.dashboard.manage_cms')
 
-  
+  def salary_type_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    entered_data = self.text_box_9_copy.text
+    new_row = app_tables.fin_borrower_salary_type.add_row(borrower_salary_type=entered_data)
+    self.text_box_9_copy.text = ' '
+    self.refresh()
+
 
 
 

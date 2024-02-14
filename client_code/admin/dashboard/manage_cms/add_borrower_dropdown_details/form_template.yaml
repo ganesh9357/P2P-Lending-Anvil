@@ -551,6 +551,49 @@ components:
       properties: {item_template: admin.dashboard.manage_cms.add_borrower_dropdown_details.ItemTemplate11}
       type: RepeatingPanel
       layout_properties: {grid_position: 'VRTHOW,FYGSMJ'}
+  - name: column_panel_10_copy
+    properties: {role: null, tooltip: '', border: '', foreground: '', visible: false,
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"ACRDSD":10,"OXEFAE":35,"XOPJRZ":10}',
+      spacing_below: small, background: ''}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'KBHWGG,SVBISJ'}
+    components:
+    - name: label_14_copy
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: Add Salary Type details, font_size: 18, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+        underline: false, icon: ''}
+      type: Label
+      layout_properties: {grid_position: 'VDAPOV,OCZSFC'}
+    - name: label_9_copy
+      properties: {text: Salary Type, align: center}
+      type: Label
+      layout_properties: {grid_position: 'LOSRQA,ACRDSD'}
+    - name: text_box_9_copy
+      properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
+      type: TextBox
+      layout_properties: {grid_position: 'LOSRQA,OXEFAE'}
+    - name: salary_button
+      properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
+        foreground: 'theme:Tertiary Container', visible: true, text: ADD, font_size: null,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '#00008B', bold: true, underline: false, icon: ''}
+      type: Button
+      layout_properties:
+        col_widths: {}
+        grid_position: LOSRQA,NRUXTE
+      event_bindings: {click: salary_type_click}
+    - name: spacer_10_copy
+      properties: {height: 139.5714111328125}
+      type: Spacer
+      layout_properties: {grid_position: 'VRTHOW,XOPJRZ'}
+    - name: repeating_panel_10
+      properties: {item_template: admin.dashboard.manage_cms.add_borrower_dropdown_details.ItemTemplate12}
+      type: RepeatingPanel
+      layout_properties: {grid_position: 'VRTHOW,EARFPK'}
 - type: Button
   properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
     foreground: white, visible: true, text: Back, font_size: null, font: '16', spacing_above: small,
@@ -561,47 +604,4 @@ components:
     col_widths: {}
     grid_position: WWOWBA,RSSWMU
   event_bindings: {click: button_1_copy_3_click}
-- name: column_panel_10_copy
-  properties: {role: null, tooltip: '', border: '', foreground: '', visible: false,
-    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"ACRDSD":10,"OXEFAE":35,"OZGSCX":15,"XOPJRZ":10,"FYGSMJ":50}',
-    spacing_below: small, background: ''}
-  type: ColumnPanel
-  layout_properties: {grid_position: 'WWOWBA,BSRXCH'}
-  components:
-  - name: label_14_copy
-    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-      visible: true, text: Add Salary Type details, font_size: 18, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
-    type: Label
-    layout_properties: {grid_position: 'TPHGGJ,ZEPRGQ'}
-  - name: label_9_copy
-    properties: {text: Salary Type, align: center}
-    type: Label
-    layout_properties: {grid_position: 'LOSRQA,ACRDSD'}
-  - name: text_box_9_copy
-    properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
-      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
-      background: '', bold: false, underline: false}
-    type: TextBox
-    layout_properties: {grid_position: 'LOSRQA,OXEFAE'}
-  - name: salary_button
-    properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
-      foreground: 'theme:Tertiary Container', visible: true, text: ADD, font_size: null,
-      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '#00008B', bold: true, underline: false, icon: ''}
-    type: Button
-    layout_properties:
-      col_widths: {}
-      grid_position: LOSRQA,OZGSCX
-    event_bindings: {click: salary_type_click}
-  - name: spacer_10_copy
-    properties: {height: 139.5714111328125}
-    type: Spacer
-    layout_properties: {grid_position: 'VRTHOW,XOPJRZ'}
-  - name: repeating_panel_9_copy
-    properties: {item_template: admin.dashboard.manage_cms.add_borrower_dropdown_details.ItemTemplate11}
-    type: RepeatingPanel
-    layout_properties: {grid_position: 'VRTHOW,FYGSMJ'}
 is_package: true

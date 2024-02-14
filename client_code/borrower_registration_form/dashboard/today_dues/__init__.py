@@ -19,24 +19,26 @@ class today_dues(today_duesTemplate):
         today_date = datetime.now(timezone.utc).date()
 
         # Fetch all loan details from fin_emi_table where next_payment matches today's date
-        all_loans = app_tables.fin_emi_table.search(
+        all_loans = list(app_tables.fin_emi_table.search(
             next_payment=q.less_than_or_equal_to(today_date)
-        )
+        ))
 
-        # Create a list to store loan details
-        loan_details = []
-        
-        # Populate loan details with loan amounts from fin_loan_details table
-        for loan in all_loans:
-            loan_id = loan['loan_id']
+        # Sort the list of loans in descending order based on next_payment date
+        all_loans.sort(key=lambda x: x['next_payment'], reverse=True)
+        # Check if any loans were found
+        if all_loans:
+            latest_loan = all_loans[0]
+            
+            # Fetch details for the latest loan
+            loan_id = latest_loan['loan_id']
             loan_details_row = app_tables.fin_loan_details.get(loan_id=loan_id)
             if loan_details_row is not None:
                 loan_amount = loan_details_row['loan_amount']
-                scheduled_payment = loan['scheduled_payment']
-                next_payment = loan['next_payment']
-                days_left = (next_payment - today_date).days
-                emi_number = loan['emi_number']
-                account_number = loan['account_number']
+                scheduled_payment = latest_loan['scheduled_payment']
+                next_payment = latest_loan['next_payment']
+                days_left = (today_date - next_payment).days
+                emi_number = latest_loan['emi_number']
+                account_number = latest_loan['account_number']
                 tenure = loan_details_row['tenure']
                 interest_rate = loan_details_row['interest_rate']
                 borrower_loan_created_timestamp = loan_details_row['borrower_loan_created_timestamp']
@@ -44,9 +46,10 @@ class today_dues(today_duesTemplate):
                 loan_disbursed_timestamp = loan_details_row['loan_disbursed_timestamp']
                 emi_payment_type = loan_details_row['emi_payment_type']
                 lender_customer_id = loan_details_row['lender_customer_id']
-                first_emi_payment_due_date= loan_details_row['first_emi_payment_due_date']
-                
-                loan_details.append({
+                first_emi_payment_due_date = loan_details_row['first_emi_payment_due_date']
+
+                # Populate loan details
+                loan_details = [{
                     'loan_id': loan_id,
                     'loan_amount': loan_amount,
                     'scheduled_payment': scheduled_payment,
@@ -61,9 +64,15 @@ class today_dues(today_duesTemplate):
                     'next_payment': next_payment,
                     'emi_payment_type': emi_payment_type,
                     'lender_customer_id': lender_customer_id,
-                    'first_emi_payment_due_date':first_emi_payment_due_date
-                })
+                    'first_emi_payment_due_date': first_emi_payment_due_date
+                }]
                 
+                # Now you can use loan_details list containing details of the latest loan
+                print(loan_details)
+        else:
+            # Handle case where no loans are found for today's date
+            print("No loans due today.")
+          
         # If no loans are found with next_payment date matching today's date,
         # fetch the loan details based on the first_payment_due_date
         if not loan_details:
@@ -75,7 +84,7 @@ class today_dues(today_duesTemplate):
               loan_id = loan_due['loan_id']
               loan_amount = loan_due['loan_amount']
               first_emi_payment_due_date = loan_due['first_emi_payment_due_date']
-              days_left = (first_emi_payment_due_date - today_date).days
+              days_left = (today_date - first_emi_payment_due_date).days
               # Fetch account number from user profile table based on customer_id
               user_profile = app_tables.fin_user_profile.get(customer_id=self.user_id)
               if user_profile is not None:

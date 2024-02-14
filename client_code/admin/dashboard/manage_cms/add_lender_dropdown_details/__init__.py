@@ -16,7 +16,7 @@ class add_lender_dropdown_details(add_lender_dropdown_detailsTemplate):
 
   def refresh(self):
         """Refresh repeating panels with the latest data"""
-        # self.repeating_panel_1.items = app_tables.fin_lendor_gender.search()
+        self.repeating_panel_1.items = app_tables.fin_lendor_salary_type.search()
         self.repeating_panel_2.items = app_tables.fin_lendor_qualification.search()
         self.repeating_panel_3.items = app_tables.fin_lendor_business_type.search()
         self.repeating_panel_4.items = app_tables.fin_lendor_lending_type.search()
@@ -56,6 +56,7 @@ class add_lender_dropdown_details(add_lender_dropdown_detailsTemplate):
     self.column_panel_4.visible = True
     self.column_panel_3.visible = False
     # self.column_panel_2.visible = False
+    self.column_panel_10_copy.visible = False
     self.column_panel_11.visible = False
 
   def professioon_click(self, **event_args):
@@ -68,6 +69,7 @@ class add_lender_dropdown_details(add_lender_dropdown_detailsTemplate):
     self.column_panel_5.visible = False   
     self.column_panel_4.visible = False
     self.column_panel_3.visible = False
+    self.column_panel_10_copy.visible = False
     # self.column_panel_2.visible = False   
     self.column_panel_11.visible = False
   def No_of_emp_click(self, **event_args):
@@ -81,6 +83,7 @@ class add_lender_dropdown_details(add_lender_dropdown_detailsTemplate):
     self.column_panel_4.visible = False
     self.column_panel_3.visible = False
     # self.column_panel_2.visible = False
+    self.column_panel_10_copy.visible = False
     self.column_panel_11.visible = False
   def emp_type_button(self, **event_args):
     """This method is called when the button is clicked"""
@@ -93,6 +96,7 @@ class add_lender_dropdown_details(add_lender_dropdown_detailsTemplate):
     self.column_panel_4.visible = False
     self.column_panel_3.visible = False
     # self.column_panel_2.visible = False
+    self.column_panel_10_copy.visible = False
     self.column_panel_11.visible = False
   def organization_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -106,6 +110,7 @@ class add_lender_dropdown_details(add_lender_dropdown_detailsTemplate):
     self.column_panel_3.visible = False
     # self.column_panel_2.visible = False
     self.column_panel_11.visible = False
+    self.column_panel_10_copy.visible = False
   def account_click(self, **event_args):
     """This method is called when the button is clicked"""
     self.column_panel_7.visible = False
@@ -118,6 +123,7 @@ class add_lender_dropdown_details(add_lender_dropdown_detailsTemplate):
     self.column_panel_3.visible = False
     # self.column_panel_2.visible = False
     self.column_panel_11.visible = False
+    self.column_panel_10_copy.visible = False
   def marital_click(self, **event_args):
     """This method is called when the button is clicked"""
     self.column_panel_7.visible = False
@@ -130,6 +136,7 @@ class add_lender_dropdown_details(add_lender_dropdown_detailsTemplate):
     self.column_panel_3.visible = False
     # self.column_panel_2.visible = False
     self.column_panel_11.visible = False
+    self.column_panel_10_copy.visible = False
   def lending_period_button(self, **event_args):
     """This method is called when the button is clicked"""
     self.column_panel_11.visible = True
@@ -142,6 +149,7 @@ class add_lender_dropdown_details(add_lender_dropdown_detailsTemplate):
     self.column_panel_4.visible = False
     self.column_panel_3.visible = False
     # self.column_panel_2.visible = False
+    self.column_panel_10_copy.visible = False
     
   def qualification(self, **event_args):
     """This method is called when the button is clicked"""
@@ -231,6 +239,7 @@ class add_lender_dropdown_details(add_lender_dropdown_detailsTemplate):
     self.column_panel_3.visible = True
     # self.column_panel_2.visible = False
     self.column_panel_11.visible = False
+    self.column_panel_10_copy.visible = False
 
   def lending_period_button_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -243,3 +252,23 @@ class add_lender_dropdown_details(add_lender_dropdown_detailsTemplate):
     """This method is called when the button is clicked"""
     open_form('admin.dashboard.manage_cms.manage_dropdowns')
 
+  def salary_type_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    entered_data = self.text_box_9_copy.text
+    new_row = app_tables.fin_lendor_salary_type.add_row(lendor_salary_type=entered_data)
+    self.text_box_9_copy.text = ' '
+    self.refresh()
+
+  def salary_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    self.column_panel_7.visible = False
+    self.column_panel_8.visible = False
+    self.column_panel_9.visible = False
+    self.column_panel_10.visible = False
+    self.column_panel_6.visible = False
+    self.column_panel_5.visible = False   
+    self.column_panel_4.visible = False
+    self.column_panel_3.visible = False
+    #self.column_panel_2.visible = False
+    self.column_panel_11.visible = False
+    self.column_panel_10_copy.visible = True

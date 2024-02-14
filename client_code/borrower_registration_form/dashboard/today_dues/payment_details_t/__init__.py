@@ -51,7 +51,7 @@ class payment_details_t(payment_details_tTemplate):
             account_number = emi_row['account_number'] if emi_row else None
 
             # Update beginning balance for the next iteration
-            beginning_balance = selected_row['loan_amount'] if month == 1 else ending_balance
+            beginning_balance = ending_balance
 
             # Calculate interest and principal amounts
             monthly_interest_rate = (selected_row['interest_rate'] / 100) / 12
@@ -110,7 +110,7 @@ class payment_details_t(payment_details_tTemplate):
                         payment_date = loan_disbursed_timestamp + timedelta(days=current_month * 30)
                     elif emi_payment_type == 'One Time':
                         # Payment date is set for the first month only
-                        payment_date = loan_disbursed_timestamp + timedelta(days=365)
+                        payment_date = loan_disbursed_timestamp + timedelta(days=30)  # Assuming 30 days per month
                     elif emi_payment_type == 'Three Month':
                         # Add 3 months to the loan disbursal date
                         payment_date = loan_disbursed_timestamp + timedelta(days=current_month * 90)
@@ -132,46 +132,59 @@ class payment_details_t(payment_details_tTemplate):
             return None
 
     def calculate_emi_and_balance(self, selected_row, current_month):
-        emi = 0
-        ending_balance = 0
+        emi = self.calculate_emi(selected_row)
+        ending_balance = selected_row['loan_amount']
+        beginning_balance = selected_row['loan_amount']
 
         if selected_row['emi_payment_type'] == 'Monthly':
-            # For monthly payments, calculate EMI and ending balance
-            emi = self.calculate_emi(selected_row, current_month)
-            ending_balance = selected_row['loan_amount'] - (emi * current_month)
-        elif selected_row['emi_payment_type'] == 'One Time':
-            # For one-time payment, calculate EMI and ending balance for the full tenure
-            emi = self.calculate_emi(selected_row)
-            ending_balance = selected_row['loan_amount'] - (emi * selected_row['tenure'])
+            # For monthly payments, calculate ending balance
+            for month in range(1, current_month + 1):
+                interest_amount = beginning_balance * (selected_row['interest_rate'] / 100) / 12
+                principal_amount = emi - interest_amount
+                ending_balance -= principal_amount
+                beginning_balance = ending_balance  # Update beginning balance for the next iteration
         elif selected_row['emi_payment_type'] == 'Three Month':
-            # For three-month payment, calculate EMI and ending balance for each 3-month period
-            emi = self.calculate_emi(selected_row, current_month * 3)
-            ending_balance = selected_row['loan_amount'] - (emi * current_month)
+            # For three-month payments, calculate ending balance for each 3-month period
+            for period in range(1, (current_month // 3) + 1):
+                interest_amount = beginning_balance * (selected_row['interest_rate'] / 100) / 12 * 3
+                principal_amount = emi - interest_amount
+                ending_balance -= principal_amount
+                beginning_balance = ending_balance  # Update beginning balance for the next iteration
         elif selected_row['emi_payment_type'] == 'Six Month':
-            # For six-month payment, calculate EMI and ending balance for each 6-month period
-            emi = self.calculate_emi(selected_row, current_month * 6)
-            ending_balance = selected_row['loan_amount'] - (emi * current_month)
+            # For six-month payments, calculate ending balance for each 6-month period
+            for period in range(1, (current_month // 6) + 1):
+                interest_amount = beginning_balance * (selected_row['interest_rate'] / 100) / 12 * 6
+                principal_amount = emi - interest_amount
+                ending_balance -= principal_amount
+                beginning_balance = ending_balance  # Update beginning balance for the next iteration
 
         return emi, ending_balance
 
-    def calculate_emi(self, selected_row, tenure=None):
-        tenure = selected_row['tenure'] if tenure is None else tenure
-        monthly_interest_rate = (selected_row['interest_rate'] / 100) / 12
-        emi = (selected_row['loan_amount'] * monthly_interest_rate * ((1 + monthly_interest_rate) ** tenure)) / (
-                ((1 + monthly_interest_rate) ** tenure) - 1)
-        return emi
-
     def calculate_num_payments(self, selected_row):
-        if selected_row['emi_payment_type'] == 'Monthly':
-            return selected_row['tenure']
-        elif selected_row['emi_payment_type'] == 'One Time':
+        tenure = selected_row['tenure']
+        payment_type = selected_row['emi_payment_type']
+
+        if payment_type == 'One Time':
             return 1
-        elif selected_row['emi_payment_type'] == 'Three Month':
-            return selected_row['tenure'] // 3
-        elif selected_row['emi_payment_type'] == 'Six Month':
-            return selected_row['tenure'] // 6
+        elif payment_type == 'Monthly':
+            return tenure
+        elif payment_type == 'Three Month':
+            return tenure // 3
+        elif payment_type == 'Six Month':
+            return tenure // 6
         else:
             return 0
+
+    def calculate_emi(self, selected_row):
+        loan_amount = selected_row['loan_amount']
+        tenure = selected_row['tenure']
+        interest_rate = selected_row['interest_rate']
+
+        monthly_interest_rate = interest_rate / (12 * 100)
+        emi = (loan_amount * monthly_interest_rate * ((1 + monthly_interest_rate) ** tenure)) / (
+                ((1 + monthly_interest_rate) ** tenure) - 1)
+
+        return emi
 
     def button_1_click(self, **event_args):
         """This method is called when the button is clicked"""
