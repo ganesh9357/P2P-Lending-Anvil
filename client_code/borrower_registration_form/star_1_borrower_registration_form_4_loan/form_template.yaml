@@ -64,7 +64,7 @@ components:
 - type: Button
   properties: {role: elevated-button, align: right, tooltip: '', border: '', enabled: true,
     foreground: 'theme:On Primary', visible: true, text: Prev, font_size: null, font: '',
-    spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '#00008B',
+    spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '#0b2547',
     bold: true, underline: false, icon: 'fa:angle-double-left'}
   name: button_1
   layout_properties: {grid_position: 'WAMCJC,YXCLQI'}
@@ -73,7 +73,7 @@ components:
   properties: {role: elevated-button, align: left, tooltip: '', border: '', enabled: true,
     foreground: 'theme:On Primary', visible: true, text: Next, font_size: null, font: '',
     spacing_above: small, icon_align: right, spacing_below: small, italic: false,
-    background: '#00008B', bold: true, underline: false, icon: 'fa:angle-double-right'}
+    background: '#0b2547', bold: true, underline: false, icon: 'fa:angle-double-right'}
   name: button_2
   layout_properties: {grid_position: 'WAMCJC,XEHGKC'}
   event_bindings: {click: button_2_click}
