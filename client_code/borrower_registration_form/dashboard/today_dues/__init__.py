@@ -48,7 +48,7 @@ class today_dues(today_duesTemplate):
                 lender_customer_id = loan_details_row['lender_customer_id']
                 first_emi_payment_due_date = loan_details_row['first_emi_payment_due_date']
                 total_repayment_amount = loan_details_row['total_repayment_amount']
-                #processing_fee = loan_details_row['processing_fee']
+                total_processing_fee_amount = loan_details_row['total_processing_fee_amount']
 
                 # Populate loan details
                 loan_details = [{
@@ -67,8 +67,8 @@ class today_dues(today_duesTemplate):
                     'emi_payment_type': emi_payment_type,
                     'lender_customer_id': lender_customer_id,
                     'first_emi_payment_due_date': first_emi_payment_due_date,
-                    'total_repayment_amount':total_repayment_amount
-                    #'processing_fee' : processing_fee
+                    'total_repayment_amount':total_repayment_amount,
+                    'total_processing_fee_amount' : total_processing_fee_amount
                 }]
                 
                 # Now you can use loan_details list containing details of the latest loan
@@ -107,7 +107,7 @@ class today_dues(today_duesTemplate):
               emi_payment_type = loan_due['emi_payment_type']
               lender_customer_id = loan_due['lender_customer_id']
               total_repayment_amount = loan_due['total_repayment_amount']
-              #processing_fee = loan_due['processing_fee']
+              total_processing_fee_amount = loan_due['total_processing_fee_amount']
               
               # Calculate next_payment based on first_payment_due_date
               if emi_payment_type == 'One Time':
@@ -141,9 +141,9 @@ class today_dues(today_duesTemplate):
                   'account_number': account_number,
                   'emi_payment_type': emi_payment_type,
                   'lender_customer_id': lender_customer_id,
-                  'total_repayment_amount':total_repayment_amount
+                  'total_repayment_amount':total_repayment_amount,
                   # 'first_payment_due_date': first_payment_due_date
-                  #'processing_fee':processing_fee
+                  'total_processing_fee_amount':total_processing_fee_amount
               })
         self.repeating_panel_1.items = loan_details
         for loan_detail in loan_details:

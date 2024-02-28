@@ -152,7 +152,7 @@ class payment_details_t(payment_details_tTemplate):
   
       # Initialize Total Repayment Beginning Balance (TRBB) and Total Repayment Ending Balance (TREB)
       beginning_loan_amount_balance = selected_row['loan_amount']
-      processing_fee = selected_row['processing_fee'] / selected_row['tenure'] if selected_row['processing_fee'] is not None else 0
+      processing_fee = selected_row['total_processing_fee_amount'] / selected_row['tenure'] if selected_row['total_processing_fee_amount'] is not None else 0
       # For monthly payments, calculate ending balance
       for month in range(1, current_month + 1):
           interest_amount = beginning_loan_amount_balance * (selected_row['interest_rate'] / 100) / 12
@@ -174,7 +174,7 @@ class payment_details_t(payment_details_tTemplate):
       ending_loan_amount_balance = beginning_loan_amount_balance
   
       # Since processing fee is a one-time charge, apply it only at the beginning
-      processing_fee = selected_row['processing_fee'] if selected_row['processing_fee'] is not None else 0
+      processing_fee = selected_row['total_processing_fee_amount'] if selected_row['total_processing_fee_amount'] is not None else 0
   
       # Subtract processing fee from the total repayment amount at the beginning
       beginning_balance -= processing_fee
@@ -199,7 +199,7 @@ class payment_details_t(payment_details_tTemplate):
       ending_loan_amount_balance = beginning_loan_amount_balance
   
       # Since processing fee is a one-time charge, apply it only at the beginning
-      processing_fee = selected_row['processing_fee'] if selected_row['processing_fee'] is not None else 0
+      processing_fee = selected_row['total_processing_fee_amount'] if selected_row['total_processing_fee_amount'] is not None else 0
   
       # Subtract processing fee from the total repayment amount at the beginning
       beginning_balance -= processing_fee
@@ -225,7 +225,7 @@ class payment_details_t(payment_details_tTemplate):
         ending_loan_amount_balance = beginning_loan_amount_balance
     
         # Since processing fee is a one-time charge, apply it only at the beginning
-        processing_fee = selected_row['processing_fee'] if selected_row['processing_fee'] is not None else 0
+        processing_fee = selected_row['total_processing_fee_amount'] if selected_row['total_processing_fee_amount'] is not None else 0
     
         # Subtract processing fee from the total repayment amount at the beginning
         beginning_balance -= processing_fee
