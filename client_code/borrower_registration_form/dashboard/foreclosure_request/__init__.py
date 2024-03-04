@@ -27,7 +27,7 @@ class foreclosure_request(foreclosure_requestTemplate):
                 try:
                     customer_loans = app_tables.fin_loan_details.search(borrower_customer_id=user_id)
                     # Set the filtered data as the items for the repeating panel
-                    self.repeating_panel_1.items = customer_loans
+                    self.repeating_panel_2.items = customer_loans
                 except anvil.tables.TableError as e:
                     print(f"Error: {e}")
             else:

@@ -2,26 +2,26 @@ is_package: true
 container: {type: ColumnPanel}
 components:
 - name: xy_panel_1
-  properties: {height: 301.5454406738281, role: outlined-card}
+  properties: {height: 292.99993896484375, role: outlined-card}
   type: XYPanel
-  layout_properties: {grid_position: 'TTAHDT,UCYJAP'}
+  layout_properties: {grid_position: 'SHGMRE,BQCTPY'}
   components:
   - name: image_1
     properties: {height: 63.399932861328125, source: 'https://freesvg.org/img/abstract-user-flat-4.png'}
     type: Image
     layout_properties: {x: 3.050000000745058, y: 0, width: 66}
-  - name: borrower_name
+  - name: lendor_name
     properties: {bold: true}
     type: Label
     layout_properties: {x: 78.48750000074506, y: 0, width: 200}
     data_bindings:
-    - {property: text, code: 'self.item[''borrower_full_name'']', writeback: false}
+    - {property: text, code: 'self.item[''lender_full_name'']', writeback: false}
   - name: mobile
     properties: {}
     type: Label
     layout_properties: {x: 78.53748779371381, y: 27.950009156018496, width: 200}
     data_bindings:
-    - {property: text, code: 'self.item[''borrower_customer_id'']', writeback: false}
+    - {property: text, code: 'self.item[''lender_customer_id'']', writeback: false}
   - name: label_3
     properties: {text: '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------',
       foreground: grey}

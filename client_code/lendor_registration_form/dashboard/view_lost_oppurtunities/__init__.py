@@ -15,7 +15,7 @@ class view_lost_oppurtunities(view_lost_oppurtunitiesTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.user_id = main_form_module.userId
-    self.repeating_panel_2.items = app_tables.fin_loan_details.search(loan_updated_status=q.like('lost opportunities%'))
+    self.repeating_panel_1.items = app_tables.fin_loan_details.search(loan_updated_status=q.like('lost opportunities%'))
 
   
   def button_1_click(self, **event_args):

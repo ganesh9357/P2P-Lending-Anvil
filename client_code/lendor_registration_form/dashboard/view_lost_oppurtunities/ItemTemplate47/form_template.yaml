@@ -4,7 +4,7 @@ components:
 - name: xy_panel_1
   properties: {height: 301.5454406738281, role: outlined-card}
   type: XYPanel
-  layout_properties: {grid_position: 'TTAHDT,UCYJAP'}
+  layout_properties: {grid_position: 'LJUDJR,OYLTPJ'}
   components:
   - name: image_1
     properties: {height: 63.399932861328125, source: 'https://freesvg.org/img/abstract-user-flat-4.png'}

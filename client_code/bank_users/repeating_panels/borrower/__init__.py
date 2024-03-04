@@ -14,3 +14,9 @@ class borrower(borrowerTemplate):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+
+  def outlined_button_1_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    selected_row = self.item
+    open_form('borrower_registration_form.dashboard.foreclosure_request.borrower_foreclosure', selected_row=selected_row)
+

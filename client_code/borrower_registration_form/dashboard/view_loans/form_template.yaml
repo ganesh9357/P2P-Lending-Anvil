@@ -166,8 +166,10 @@ components:
   type: DataGrid
   components:
   - name: repeating_panel_1
-    properties: {item_template: borrower_registration_form.dashboard.view_loans.RowTemplate15}
+    properties: {item_template: borrower_registration_form.dashboard.view_loans.RowTemplate15,
+      visible: false}
     type: RepeatingPanel
+    layout_properties: {}
   layout_properties: {grid_position: 'THVPGX,YIJBLL'}
 - name: label_2
   properties: {bold: true, align: center, text: Closed Loans, visible: false}
@@ -243,4 +245,29 @@ components:
   - name: repeating_panel_5
     properties: {item_template: borrower_registration_form.dashboard.view_loans.RowTemplate15}
     type: RepeatingPanel
+- name: repeating_panel_6
+  properties: {item_template: borrower_registration_form.dashboard.view_loans.ItemTemplate41,
+    visible: false}
+  type: RepeatingPanel
+  layout_properties: {grid_position: 'KSECDY,QYVOLK'}
+- name: repeating_panel_7
+  properties: {item_template: borrower_registration_form.dashboard.view_loans.ItemTemplate42,
+    visible: false}
+  type: RepeatingPanel
+  layout_properties: {grid_position: 'VWZMCG,FNHIYC'}
+- name: repeating_panel_8
+  properties: {item_template: borrower_registration_form.dashboard.view_loans.ItemTemplate43,
+    visible: false}
+  type: RepeatingPanel
+  layout_properties: {grid_position: 'ELHRPB,OUPOCQ'}
+- name: repeating_panel_9
+  properties: {item_template: borrower_registration_form.dashboard.view_loans.ItemTemplate44,
+    visible: false}
+  type: RepeatingPanel
+  layout_properties: {grid_position: 'XVNVCJ,FWUABT'}
+- name: repeating_panel_10
+  properties: {item_template: borrower_registration_form.dashboard.view_loans.ItemTemplate45,
+    visible: false}
+  type: RepeatingPanel
+  layout_properties: {grid_position: 'CFVOZT,PTEELL'}
 is_package: true
