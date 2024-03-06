@@ -70,13 +70,6 @@ components:
     layout_properties: {x: 735.3750152587891, y: 150.3392791748047, width: 200}
     data_bindings:
     - {property: text, code: 'self.item[''interest_rate'']', writeback: false}
-  - name: label_1
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Schedule payment, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
-    type: Label
-    layout_properties: {x: 10, y: 120.32147216796875, width: 160}
   - name: label_2
     properties: {}
     type: Label
@@ -100,15 +93,22 @@ components:
     properties: {text: 'Invested on : ', bold: true}
     type: Label
     layout_properties: {x: 10, y: 297.00006103515625, width: 103.554}
+  - name: label_1
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: Schedule payment, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {x: 10, y: 112.33929443359375, width: 160}
   - type: Label
     properties: {}
     name: label_5
-    layout_properties: {x: 735.3750152587891, y: 263.25, width: 160}
+    layout_properties: {x: 735.2321929931641, y: 256.25006103515625, width: 160}
     data_bindings:
     - {property: text, code: 'self.item[''days_left'']'}
   - name: return
     properties: {}
     type: Label
-    layout_properties: {x: 735.3750152587891, y: 309.25006103515625, width: 200}
+    layout_properties: {x: 735.3750152587891, y: 288.25006103515625, width: 200}
     data_bindings:
     - {property: text, code: 'self.item[''loan_disbursed_timestamp'']'}

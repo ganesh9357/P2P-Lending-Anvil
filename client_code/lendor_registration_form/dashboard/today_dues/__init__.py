@@ -112,19 +112,19 @@ class today_dues(today_duesTemplate):
               # Calculate next_payment based on first_payment_due_date
               if emi_payment_type == 'One Time':
                 if tenure:
-                  next_payment = loan_disbursed_timestamp + timedelta(days=30 * tenure)
+                  next_payment = loan_disbursed_timestamp.date() + timedelta(days=30 * tenure)
               elif emi_payment_type == 'Monthly':
                   # For monthly payment, set next_payment to a month after first_payment_due_date
-                  next_payment = loan_disbursed_timestamp + timedelta(days=30)
+                  next_payment = loan_disbursed_timestamp.date() + timedelta(days=30)
               elif emi_payment_type == 'Three Month':
                   # For three-month payment, set next_payment to three months after first_payment_due_date
-                  next_payment = loan_disbursed_timestamp + timedelta(days=90)
+                  next_payment = loan_disbursed_timestamp.date() + timedelta(days=90)
               elif emi_payment_type == 'Six Month':
                   # For six-month payment, set next_payment  six months after first_payment_due_date
-                  next_payment = loan_disbursed_timestamp + timedelta(days=180)
+                  next_payment = loan_disbursed_timestamp.date() + timedelta(days=180)
               else:
                   # Default to monthly calculation if emi_payment_type is not recognized
-                  next_payment = loan_disbursed_timestamp + timedelta(days=30)
+                  next_payment = loan_disbursed_timestamp.date() + timedelta(days=30)
               
               loan_details.append({
                   'loan_id': loan_id,
@@ -145,7 +145,7 @@ class today_dues(today_duesTemplate):
                   # 'first_payment_due_date': first_payment_due_date
                   'total_processing_fee_amount':total_processing_fee_amount
               })
-        self.repeating_panel_2.items = loan_details
+        self.repeating_panel_1.items = loan_details
         for loan_detail in loan_details:
             print("Processing loan:", loan_detail)
             if loan_detail['days_left'] >= 6 and loan_detail['days_left'] < 8:
