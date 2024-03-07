@@ -21,7 +21,7 @@ components:
     type: Label
     layout_properties: {x: 78.53748779371381, y: 27.950009156018496, width: 200}
     data_bindings:
-    - {property: text, code: 'self.item[''borrower_customer_id'']', writeback: false}
+    - {property: text, code: 'self.item[''mobile'']', writeback: false}
   - name: label_3
     properties: {text: '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------',
       foreground: grey}
@@ -31,12 +31,14 @@ components:
     properties: {}
     type: Label
     layout_properties: {x: 735.2499206550419, y: 0, width: 200}
-    data_bindings: []
+    data_bindings:
+    - {property: text, code: 'self.item[''product_name'']', writeback: false}
   - name: product_details
     properties: {}
     type: Label
     layout_properties: {x: 735.3874938972294, y: 24.000012207776308, width: 200}
-    data_bindings: []
+    data_bindings:
+    - {property: text, code: 'self.item[''product_description'']', writeback: false}
   - name: label_8
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: Loan Amount, font_size: null, font: '', spacing_above: small,

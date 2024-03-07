@@ -4,7 +4,7 @@ components:
 - name: xy_panel_1
   properties: {height: 383.5454406738281, role: outlined-card}
   type: XYPanel
-  layout_properties: {grid_position: 'BXJAXA,ILXMBP'}
+  layout_properties: {grid_position: 'BRVBMY,OBBDGQ'}
   components:
   - name: image_1
     properties: {height: 63.399932861328125, source: 'https://freesvg.org/img/abstract-user-flat-4.png'}
@@ -15,13 +15,13 @@ components:
     type: Label
     layout_properties: {x: 78.48750000074506, y: 0, width: 200}
     data_bindings:
-    - {property: text, code: 'self.item[''borrower_full_name'']'}
+    - {property: text, code: 'self.item[''borrower_full_name'']', writeback: false}
   - name: mobile
     properties: {}
     type: Label
     layout_properties: {x: 78.53748779371381, y: 27.950009156018496, width: 200}
     data_bindings:
-    - {property: text, code: 'self.item[''borrower_customer_id'']', writeback: false}
+    - {property: text, code: 'self.item[''mobile'']', writeback: false}
   - name: label_3
     properties: {text: '---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------',
       foreground: grey}
@@ -31,12 +31,14 @@ components:
     properties: {}
     type: Label
     layout_properties: {x: 735.2499206550419, y: 0, width: 200}
-    data_bindings: []
+    data_bindings:
+    - {property: text, code: 'self.item[''product_name'']', writeback: false}
   - name: product_details
     properties: {}
     type: Label
     layout_properties: {x: 735.3874938972294, y: 24.000012207776308, width: 200}
-    data_bindings: []
+    data_bindings:
+    - {property: text, code: 'self.item[''product_description'']', writeback: false}
   - name: outlined_button_1
     properties: {text: View Loan Details, role: outlined-button, align: center, font_size: null,
       background: '#05264d', foreground: white, bold: true}
@@ -66,7 +68,14 @@ components:
     properties: {}
     type: Label
     layout_properties: {x: 735.3750152587891, y: 117.33927917480469, width: 200}
-    data_bindings: []
+    data_bindings:
+    - {property: text, code: 'self.item[''interest_rate'']', writeback: false}
+  - name: term
+    properties: {}
+    type: Label
+    layout_properties: {x: 735.2321929931641, y: 150.3392791748047, width: 200}
+    data_bindings:
+    - {property: text, code: 'self.item[''tenure'']', writeback: false}
   - name: principal_amount
     properties: {}
     type: Label
@@ -77,8 +86,5 @@ components:
     properties: {}
     type: Label
     layout_properties: {x: 735.3750152587891, y: 230.00001525878906, width: 200}
-  - name: term
-    properties: {}
-    type: Label
-    layout_properties: {x: 735.3750152587891, y: 150.33935546875, width: 200}
-    data_bindings: []
+    data_bindings:
+    - {property: text, code: 'self.item[''loan_disbursed_timestamp'']'}

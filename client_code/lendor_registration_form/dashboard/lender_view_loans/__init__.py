@@ -15,40 +15,58 @@ class lender_view_loans(lender_view_loansTemplate):
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
         self.user_id = main_form_module.userId
+        self.load_data()
 
+  def load_data(self):
         # Retrieve and display open loans
-        self.repeating_panel_6.items = app_tables.fin_loan_details.search(
+        open_loans = app_tables.fin_loan_details.search(
             loan_updated_status=q.any_of(
                 q.like('disbursed loan%'),
-                q.like('foreclosure%'),
-                #q.like('close%')
+                q.like('foreclosure%')
             )
         )
+        self.repeating_panel_6.items = self.process_data(open_loans)
         self.label_5.text = str(len(self.repeating_panel_6.items))
 
         # Retrieve and display closed loans
-        self.repeating_panel_7.items = app_tables.fin_loan_details.search(loan_updated_status=q.like('close%'))
+        closed_loans = app_tables.fin_loan_details.search(loan_updated_status=q.like('close%'))
+        self.repeating_panel_7.items = self.process_data(closed_loans)
         self.label_6.text = str(len(self.repeating_panel_7.items))
 
         # Retrieve and display rejected loans
-        self.repeating_panel_8.items = app_tables.fin_loan_details.search(loan_updated_status=q.like('reject%'))
+        rejected_loans = app_tables.fin_loan_details.search(loan_updated_status=q.like('reject%'))
+        self.repeating_panel_8.items = self.process_data(rejected_loans)
         self.label_7.text = str(len(self.repeating_panel_8.items))
 
         # Retrieve and display underprocess loans
-        self.repeating_panel_9.items = app_tables.fin_loan_details.search(loan_updated_status=q.like('under process%'))
-
+        underprocess_loans = app_tables.fin_loan_details.search(loan_updated_status=q.like('under process%'))
+        self.repeating_panel_9.items = self.process_data(underprocess_loans)
         self.label_8.text = str(len(self.repeating_panel_9.items))
 
         # Retrieve and display foreclosure loans
-        self.repeating_panel_10.items = app_tables.fin_loan_details.search(loan_updated_status=q.like('foreclosure%'))
+        foreclosure_loans = app_tables.fin_loan_details.search(loan_updated_status=q.like('foreclosure%'))
+        self.repeating_panel_10.items = self.process_data(foreclosure_loans)
         self.label_9.text = str(len(self.repeating_panel_10.items))
 
-        # Any code you write here will run before the form opens.
-
-    # ... (other methods)
-
-    # Any code you write here will run before the form opens.
-
+  def process_data(self, data):
+    profiles_with_loans = []
+    for loan in data:
+        user_profile = app_tables.fin_user_profile.get(customer_id=loan['borrower_customer_id'])
+        if user_profile is not None:
+            profiles_with_loans.append({
+                'mobile': user_profile['mobile'],
+                'interest_rate': loan['interest_rate'],
+                'loan_amount': loan['loan_amount'],
+                'tenure': loan['tenure'],
+                'loan_disbursed_timestamp': loan['loan_disbursed_timestamp'],
+                'product_name': loan['product_name'],
+                'product_description': loan['product_description'],
+                'borrower_full_name': loan['borrower_full_name'],
+                'loan_id': loan['loan_id'],
+                'borrower_loan_created_timestamp': loan['borrower_loan_created_timestamp'],
+                'loan_updated_status': loan['loan_updated_status']
+            })
+    return profiles_with_loans
   
 
 

@@ -32,7 +32,8 @@ class today_dues(today_duesTemplate):
             # Fetch details for the latest loan
             loan_id = latest_loan['loan_id']
             loan_details_row = app_tables.fin_loan_details.get(loan_id=loan_id)
-            if loan_details_row is not None:
+            user_profile = app_tables.fin_user_profile.get(customer_id=loan_details_row['borrower_customer_id'])
+            if loan_details_row is not None and user_profile is not None:
                 loan_amount = loan_details_row['loan_amount']
                 scheduled_payment = latest_loan['scheduled_payment']
                 next_payment = latest_loan['next_payment']
@@ -46,9 +47,14 @@ class today_dues(today_duesTemplate):
                 loan_disbursed_timestamp = loan_details_row['loan_disbursed_timestamp']
                 emi_payment_type = loan_details_row['emi_payment_type']
                 lender_customer_id = loan_details_row['lender_customer_id']
+                borrower_customer_id = loan_details_row['borrower_customer_id']
                 first_emi_payment_due_date = loan_details_row['first_emi_payment_due_date']
                 total_repayment_amount = loan_details_row['total_repayment_amount']
                 total_processing_fee_amount = loan_details_row['total_processing_fee_amount']
+                mobile = user_profile['mobile'],
+                product_name = loan_details_row['product_name']
+                product_description = loan_details_row['product_description']
+                borrower_full_name = loan_details_row['borrower_full_name']
 
                 # Populate loan details
                 loan_details = [{
@@ -68,7 +74,12 @@ class today_dues(today_duesTemplate):
                     'lender_customer_id': lender_customer_id,
                     'first_emi_payment_due_date': first_emi_payment_due_date,
                     'total_repayment_amount':total_repayment_amount,
-                    'total_processing_fee_amount' : total_processing_fee_amount
+                    'total_processing_fee_amount' : total_processing_fee_amount,
+                    'mobile': mobile,
+                    'product_description':product_description,
+                    'product_name':product_name,
+                    'borrower_full_name':borrower_full_name,
+                    'borrower_customer_id':borrower_customer_id
                 }]
                 
                 # Now you can use loan_details list containing details of the latest loan
@@ -90,7 +101,7 @@ class today_dues(today_duesTemplate):
               first_emi_payment_due_date = loan_due['first_emi_payment_due_date']
               days_left = (today_date - first_emi_payment_due_date).days
               # Fetch account number from user profile table based on customer_id
-              user_profile = app_tables.fin_user_profile.get(customer_id=self.user_id)
+              user_profile = app_tables.fin_user_profile.get(customer_id=loan_due['borrower_customer_id'])
               if user_profile is not None:
                   account_number = user_profile['account_number']
               else:
@@ -108,6 +119,11 @@ class today_dues(today_duesTemplate):
               lender_customer_id = loan_due['lender_customer_id']
               total_repayment_amount = loan_due['total_repayment_amount']
               total_processing_fee_amount = loan_due['total_processing_fee_amount']
+              mobile = user_profile['mobile']
+              product_name = loan_due['product_name']
+              product_description = loan_due['product_description']
+              borrower_full_name = loan_due['borrower_full_name']
+              borrower_customer_id = loan_due['borrower_customer_id']
               
               # Calculate next_payment based on first_payment_due_date
               if emi_payment_type == 'One Time':
@@ -143,9 +159,14 @@ class today_dues(today_duesTemplate):
                   'lender_customer_id': lender_customer_id,
                   'total_repayment_amount':total_repayment_amount,
                   # 'first_payment_due_date': first_payment_due_date
-                  'total_processing_fee_amount':total_processing_fee_amount
+                  'total_processing_fee_amount':total_processing_fee_amount,
+                  'mobile': mobile,
+                  'product_description':product_description,
+                  'product_name':product_name,
+                  'borrower_full_name':borrower_full_name,
+                  'borrower_customer_id':borrower_customer_id
               })
-        self.repeating_panel_1.items = loan_details
+        self.repeating_panel_2.items = loan_details
         for loan_detail in loan_details:
             print("Processing loan:", loan_detail)
             if loan_detail['days_left'] >= 6 and loan_detail['days_left'] < 8:

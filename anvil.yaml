@@ -62,7 +62,7 @@ db_schema:
       admin_ui: {width: 200}
       type: string
   fin_lendor_no_of_employees:
-    client: none
+    client: full
     server: full
     columns:
     - name: lendor_no_of_employees
@@ -854,9 +854,6 @@ db_schema:
     - name: loan_id
       admin_ui: {width: 200, order: 0}
       type: string
-    - name: borrower_customer_id
-      admin_ui: {width: 200, order: 1}
-      type: string
     - name: lender_customer_id
       admin_ui: {width: 200, order: 3}
       type: string
@@ -907,6 +904,9 @@ db_schema:
       type: datetime
     - name: emi_number
       admin_ui: {width: 200, order: 18}
+      type: number
+    - name: borrower_customer_id
+      admin_ui: {width: 200}
       type: number
     title: fin_extends_loan
   fin_borrower_marrital_status:
